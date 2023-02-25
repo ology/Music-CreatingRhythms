@@ -36,6 +36,26 @@ subtest debruijn_n => sub {
     is_deeply $got, $expect, 'debruijn_n';
 };
 
+subtest part => sub {
+    my $mcr = new_ok $module;
+
+    my $expect = [[1]];
+    my $got = $mcr->part(1);
+    is_deeply $got, $expect, 'part';
+
+    $expect = [[1,1],[2]];
+    $got = $mcr->part(2);
+    is_deeply $got, $expect, 'part';
+
+    $expect = [[1,1,1],[1,2],[3]];
+    $got = $mcr->part(3);
+    is_deeply $got, $expect, 'part';
+
+    $expect = [[1,1,1,1],[1,1,2],[2,2],[1,3],[4]];
+    $got = $mcr->part(4);
+    is_deeply $got, $expect, 'part';
+};
+
 subtest permute => sub {
     my $mcr = new_ok $module;
 
