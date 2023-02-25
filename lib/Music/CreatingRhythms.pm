@@ -18,8 +18,7 @@ use namespace::clean;
 =head1 SYNOPSIS
 
   use Music::CreatingRhythms ();
-
-  my $mcr = Music::CreatingRhythms->new(verbose => 1);
+  my $mcr = Music::CreatingRhythms->new;
 
 =head1 DESCRIPTION
 
@@ -35,7 +34,7 @@ NB: Arguments are sometimes switched between book and software.
 
   $verbose = $mcr->verbose;
 
-Show progress.
+Show progress. * This is not showing anything yet, however.
 
 =cut
 
