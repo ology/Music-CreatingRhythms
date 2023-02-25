@@ -113,11 +113,11 @@ sub _composea {
   if ($n == 0) {
     if (_allowed($p, $intervals)) {
       while ($n < $k) {
-        push @{ $compositions->[$i] }, $parts->[$n];
+        push @{ $compositions->[$$i] }, $parts->[$n];
         $n++;
       }
-      push @{ $compositions->[$i] }, $p;
-      $i++;
+      push @{ $compositions->[$$i] }, $p;
+      $$i++;
     }
     return;
   }
@@ -309,7 +309,7 @@ sub rotate_n {
 }
 
 sub _allowed { # is p one of the parts?
-    my ($self, $p, $parts) = @_;
+    my ($p, $parts) = @_;
     return any { $p == $_ } @$parts;
 }
 
