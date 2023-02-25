@@ -218,6 +218,22 @@ sub debruijn_n {
     return [ split //, $sequence ];
 }
 
+=head2 invert_at
+
+  $sequence = $mcr->invert_at($n, $parts);
+
+Invert a section of a B<parts> binary sequence at B<n>.
+
+=cut
+
+sub invert_at {
+    my ($self, $n, $parts) = @_;
+    my @head = @$parts[ 0 .. $n - 1 ];
+    my @tail = map { $_ ? 0 : 1 } @$parts[ $n .. $#$parts ];
+    my @data = (@head, @tail);
+    return \@data;
+}
+
 =head2 neck
 
   $necklaces = $mcr->neck($n);
@@ -361,7 +377,7 @@ sub permute {
 
   $sequence = $mcr->reverse_at($n, $parts);
 
-Reverse a section of a B<parts> array-reference at B<n>.
+Reverse a section of a B<parts> sequence at B<n>.
 
 =cut
 
