@@ -128,6 +128,45 @@ sub _composea {
   _composea($n - 1, $p + 1, $k, $i, $compositions, $parts, $intervals);
 }
 
+=head2 compam
+
+  $compositions = $mcr->compam($n, $m, @intervals);
+
+Generate compositions of B<n> with B<m> parts and allowed intervals
+B<p1, p2, ... pn>.
+
+=cut
+
+sub compam {
+    my ($self, $n, $m, @intervals) = @_;
+    $m--;
+    my @compositions;
+    my @parts;
+    my $i = 0;
+    _composea($n - 1, 1, 0, $m, \$i, \@compositions, \@parts, \@intervals);
+    return \@compositions;
+}
+
+sub _composeam {
+  my ($n, $p, $k, $m, $i, $compositions, $parts, $intervals) = @_;
+  if ($n == 0) {
+    if ($k == $m && _allowed($p, $intervals)) {
+      while ($n < $k) {
+        push @{ $compositions->[$$i] }, $parts->[$n];
+        $n++;
+      }
+      push @{ $compositions->[$$i] }, $p;
+      $$i++;
+    }
+    return;
+  }
+  if ($k < $m && _allowed($p, $intervals)) {
+    $parts->[$k] = $p;
+    _composeam($n - 1, 1, $k + 1, $m, $i, $compositions, $parts, $intervals);
+  }
+  _composeam($n - 1, $p + 1, $k, $m, $i, $compositions, $parts, $intervals);
+}
+
 =head2 compm
 
   $compositions = $mcr->compm($n, $m);
