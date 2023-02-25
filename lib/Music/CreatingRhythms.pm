@@ -218,6 +218,48 @@ sub debruijn_n {
     return [ split //, $sequence ];
 }
 
+=head2 neck
+
+  $necklaces = $mcr->neck($n);
+
+Generate all binary necklaces of length B<n>.
+
+=cut
+
+sub neck {
+    my ($self, $n) = @_;
+    my @necklaces;
+    my @parts = (1);
+    my $i = 0;
+    _neckbin($n, 1, 1, \$i, \@necklaces, \@parts);
+    return \@necklaces;
+}
+
+sub _neckbin {
+    my ($n, $k, $l, $i, $necklaces, $parts) = @_;
+    # k = length of necklace
+    # l = length of longest prefix that is a lyndon word
+    if ($k > $n) {
+        if(($n % $l) == 0) {
+            for $k (1 .. $n) {
+                push @{ $necklaces->[$$i] }, $parts->[$k];
+            }
+            $$i++;
+        }
+    }
+    else {
+        $parts->[$k] = $parts->[ $k - $l ];
+        if ($parts->[$k] == 1) {
+            _neckbin($n, $k + 1, $l, $i, $necklaces, $parts);
+            $parts->[$k] = 0;
+            _neckbin($n, $k + 1, $k, $i, $necklaces, $parts);
+        }
+        else {
+            _neckbin($n, $k + 1, $l, $i, $necklaces, $parts);
+        }
+    }
+}
+
 =head2 part
 
   $partitions = $mcr->part($n);
