@@ -28,6 +28,9 @@ the C. Please see the link below for more information.
 
 NB: Arguments are sometimes switched between book and software.
 
+Additionally, this module provides utilities to transform sequences
+that are not part of the book, but are nonetheless handy.
+
 =head1 ATTRIBUTES
 
 =head2 verbose
