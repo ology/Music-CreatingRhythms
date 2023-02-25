@@ -8,6 +8,7 @@ use Moo;
 use strictures 2;
 use Algorithm::Combinatorics qw(permutations);
 use Carp qw(croak);
+use Integer::Partition ();
 use List::Util qw(any);
 use Math::Sequence::DeBruijn qw(debruijn);
 use Music::AtonalUtil ();
@@ -67,6 +68,24 @@ sub debruijn_n {
     my ($self, $n) = @_;
     my $sequence = $n ? debruijn([1,0], $n) : 0;
     return [ split //, $sequence ];
+}
+
+=head2 part
+
+  $partitions = $mbv->part($n);
+
+Generate all partitions of B<n>.
+
+=cut
+
+sub part {
+    my ($self, $n) = @_;
+    my $i = Integer::Partition->new($n, { lexicographic => 1 });
+    my @partitions;
+    while (my $p = $i->next) {
+        push @partitions, [ sort { $a <=> $b } @$p ];
+    }
+    return \@partitions;
 }
 
 =head2 permute
@@ -133,6 +152,8 @@ L<https://abrazol.com/books/rhythm1/> "Creating Rhythms"
 The F<t/01-methods.t> and F<eg/*> programs included with this distribution.
 
 L<Algorithm::Combinatorics>
+
+L<Integer::Partition>
 
 L<List::Util>
 
