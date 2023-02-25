@@ -2,4 +2,4 @@ Revision history for Music-CreatingRhythms
 
 {{$NEXT}}
     - Mint with Dist::Zilla.
-    - Import functionality from my Creating-Rhythm github repo programs.
+    - Import and tweak functionality from my Creating-Rhythm github repo programs.
