@@ -93,7 +93,7 @@ sub part {
 
   $partitions = $mcr->parta($n, @parts);
 
-Generate all partitions of B<n> with allowed parts B<p1, p2, ... pn>.
+Generate all partitions of B<n> with allowed intervals B<p1, p2, ... pn>.
 
 =cut
 
