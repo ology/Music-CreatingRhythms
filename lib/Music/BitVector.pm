@@ -17,7 +17,7 @@ use namespace::clean;
 
   use Music::BitVector ();
 
-  my $mcr = Music::BitVector->new(verbose => 1);
+  my $mbv = Music::BitVector->new(verbose => 1);
 
 =head1 DESCRIPTION
 
@@ -31,7 +31,7 @@ NB: Arguments are sometimes switched between book and software.
 
 =head2 verbose
 
-  $verbose = $mcr->verbose;
+  $verbose = $mbv->verbose;
 
 Show progress.
 
@@ -47,7 +47,7 @@ has verbose => (
 
 =head2 new
 
-  $mcr = Music::BitVector->new(verbose => 1);
+  $mbv = Music::BitVector->new(verbose => 1);
 
 Create a new C<Music::BitVector> object.
 
@@ -57,7 +57,7 @@ Create a new C<Music::BitVector> object.
 
 =head2 debruijn_n
 
-  $sequence = $mcr->debruijn_n($n);
+  $sequence = $mbv->debruijn_n($n);
 
 Generate the largest de Bruijn sequence of order B<n>.
 
@@ -71,7 +71,7 @@ sub debruijn_n {
 
 =head2 permute
 
-  $all_permutations = $mcr->permute(\@parts);
+  $all_permutations = $mbv->permute(\@parts);
 
 Return all permutations of the given B<parts> list as an
 array-reference of array-references.
@@ -89,7 +89,7 @@ sub permute {
 
 =head2 reverse_at
 
-  $sequence = $mcr->reverse_at($n, $parts);
+  $sequence = $mbv->reverse_at($n, $parts);
 
 Reverse a section of a B<parts> array-reference at B<n>.
 
@@ -105,7 +105,7 @@ sub reverse_at {
 
 =head2 rotate_n
 
-  $sequence = $mcr->rotate_n($n, $parts);
+  $sequence = $mbv->rotate_n($n, $parts);
 
 Rotate a necklace of the given B<parts>, B<n> times.
 
