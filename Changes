@@ -1,0 +1,5 @@
+Revision history for Music-BitVector
+
+{{$NEXT}}
+    - Mint with Dist::Zilla.
+    - Import functionality from my Creating-Rhythm github repo programs.
