@@ -143,7 +143,7 @@ sub compam {
     my @compositions;
     my @parts;
     my $i = 0;
-    _composea($n - 1, 1, 0, $m, \$i, \@compositions, \@parts, \@intervals);
+    _composeam($n - 1, 1, 0, $m, \$i, \@compositions, \@parts, \@intervals);
     return \@compositions;
 }
 
