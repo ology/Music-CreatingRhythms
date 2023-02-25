@@ -152,6 +152,36 @@ subtest debruijn_n => sub {
     is_deeply $got, $expect, 'debruijn_n';
 };
 
+subtest invert_at => sub {
+    my $mcr = new_ok $module;
+
+    my $parts = [qw(1 0 1 0 0)];
+
+    my $expect = [qw(0 1 0 1 1)];
+    my $got = $mcr->invert_at(0, $parts);
+    is_deeply $got, $expect, 'invert_at';
+
+    $expect = [qw(1 1 0 1 1)];
+    $got = $mcr->invert_at(1, $parts);
+    is_deeply $got, $expect, 'invert_at';
+
+    $expect = [qw(1 0 0 1 1)];
+    $got = $mcr->invert_at(2, $parts);
+    is_deeply $got, $expect, 'invert_at';
+
+    $expect = [qw(1 0 1 1 1)];
+    $got = $mcr->invert_at(3, $parts);
+    is_deeply $got, $expect, 'invert_at';
+
+    $expect = [qw(1 0 1 0 1)];
+    $got = $mcr->invert_at(4, $parts);
+    is_deeply $got, $expect, 'invert_at';
+
+    $expect = [qw(1 0 1 0 0)];
+    $got = $mcr->invert_at(5, $parts);
+    is_deeply $got, $expect, 'invert_at';
+};
+
 subtest neck => sub {
     my $mcr = new_ok $module;
 
