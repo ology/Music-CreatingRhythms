@@ -8,7 +8,7 @@ use Moo;
 use strictures 2;
 use Algorithm::Combinatorics qw(permutations);
 use Carp qw(croak);
-use List::Util qw(any); # 1.33
+use List::Util qw(any);
 use Math::Sequence::DeBruijn qw(debruijn);
 use Music::AtonalUtil ();
 use namespace::clean;
