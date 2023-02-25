@@ -19,24 +19,20 @@ subtest basic => sub {
 subtest debruijn_n => sub {
     my $mbv = new_ok $module;
 
-    my $n = 0;
     my $expect = [0];
-    my $got = $mbv->debruijn_n($n);
+    my $got = $mbv->debruijn_n(0);
     is_deeply $got, $expect, 'debruijn_n';
 
-    $n = 1;
     $expect = [qw(1 0)];
-    $got = $mbv->debruijn_n($n);
+    $got = $mbv->debruijn_n(1);
     is_deeply $got, $expect, 'debruijn_n';
 
-    $n = 2;
     $expect = [qw(1 1 0 0)];
-    $got = $mbv->debruijn_n($n);
+    $got = $mbv->debruijn_n(2);
     is_deeply $got, $expect, 'debruijn_n';
 
-    $n = 3;
     $expect = [qw(1 1 1 0 1 0 0 0)];
-    $got = $mbv->debruijn_n($n);
+    $got = $mbv->debruijn_n(3);
     is_deeply $got, $expect, 'debruijn_n';
 };
 
