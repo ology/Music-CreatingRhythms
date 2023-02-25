@@ -57,6 +57,39 @@ Create a new C<Music::CreatingRhythms> object.
 
 =cut
 
+=head2 comp
+
+  $compositions = $mcr->comp($n);
+
+Generate all compositions of B<n>.
+
+=cut
+
+sub comp {
+    my ($self, $n) = @_;
+    my @compositions;
+    my @parts;
+    my $i = 0;
+    _compose($n - 1, 1, 0, $i, \@compositions, \@parts);
+    return \@compositions;
+}
+
+sub _compose {
+    my ($n, $p, $m, $i, $compositions, $parts) = @_;
+    if ($n == 0) {
+        while ($n < $m) {
+            push @{ $compositions->[$i] }, $parts->[$n];
+            $n++;
+        }
+        push @{ $compositions->[$i] }, $p;
+        $i++;
+        return;
+    }
+    $parts->[$m] = $p;
+    _compose($n - 1, 1, $m + 1, $i, $compositions, $parts);
+    _compose($n - 1, $p + 1, $m, $i, $compositions, $parts);
+}
+
 =head2 debruijn_n
 
   $sequence = $mcr->debruijn_n($n);
