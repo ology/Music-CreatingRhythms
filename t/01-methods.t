@@ -16,6 +16,26 @@ subtest basic => sub {
     is $mcr->verbose, 1, 'verbose';
 };
 
+subtest comp => sub {
+    my $mcr = new_ok $module;
+
+    my $expect = [[1]];
+    my $got = $mcr->comp(1);
+    is_deeply $got, $expect, 'comp';
+
+    $expect = [[1,1],[2]];
+    $got = $mcr->comp(2);
+    is_deeply $got, $expect, 'comp';
+
+    $expect = [[1,1,1],[1,2],[2,1],[3]];
+    $got = $mcr->comp(3);
+    is_deeply $got, $expect, 'comp';
+
+    $expect = [[1,1,1,1],[1,1,2],[1,2,1],[1,3],[2,1,1],[2,2],[3,1],[4]];
+    $got = $mcr->comp(4);
+    is_deeply $got, $expect, 'comp';
+};
+
 subtest debruijn_n => sub {
     my $mcr = new_ok $module;
 
