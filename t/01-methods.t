@@ -4,7 +4,7 @@ use warnings;
 
 use Test::More;
 
-my $module = 'Music::BitVector';
+my $module = 'Music::CreatingRhythms';
 
 use_ok $module;
 

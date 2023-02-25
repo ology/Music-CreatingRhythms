@@ -1,4 +1,4 @@
-package Music::BitVector;
+package Music::CreatingRhythms;
 
 # ABSTRACT: Perl from the C code of the book
 
@@ -16,13 +16,13 @@ use namespace::clean;
 
 =head1 SYNOPSIS
 
-  use Music::BitVector ();
+  use Music::CreatingRhythms ();
 
-  my $mbv = Music::BitVector->new(verbose => 1);
+  my $mbv = Music::CreatingRhythms->new(verbose => 1);
 
 =head1 DESCRIPTION
 
-C<Music::BitVector> provides the algorithms described in the
+C<Music::CreatingRhythms> provides the algorithms described in the
 book, "Creating Rhythms", by Hollos. These algorithms are ported from
 the C. Please see the link below for more information.
 
@@ -48,9 +48,9 @@ has verbose => (
 
 =head2 new
 
-  $mbv = Music::BitVector->new(verbose => 1);
+  $mbv = Music::CreatingRhythms->new(verbose => 1);
 
-Create a new C<Music::BitVector> object.
+Create a new C<Music::CreatingRhythms> object.
 
 =for Pod::Coverage BUILD
 
