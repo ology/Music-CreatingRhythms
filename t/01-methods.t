@@ -8,7 +8,7 @@ my $module = 'Music::CreatingRhythms';
 
 use_ok $module;
 
-subtest basic => sub {
+subtest defaults => sub {
     my $mcr = new_ok $module => [
         verbose => 1,
     ];
