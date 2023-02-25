@@ -75,9 +75,9 @@ sub comp {
 }
 
 sub _compose {
-    my ($n, $p, $m, $i, $compositions, $parts) = @_;
+    my ($n, $p, $k, $i, $compositions, $parts) = @_;
     if ($n == 0) {
-        while ($n < $m) {
+        while ($n < $k) {
             push @{ $compositions->[$$i] }, $parts->[$n];
             $n++;
         }
@@ -85,9 +85,9 @@ sub _compose {
         $$i++;
         return;
     }
-    $parts->[$m] = $p;
-    _compose($n - 1, 1, $m + 1, $i, $compositions, $parts);
-    _compose($n - 1, $p + 1, $m, $i, $compositions, $parts);
+    $parts->[$k] = $p;
+    _compose($n - 1, 1, $k + 1, $i, $compositions, $parts);
+    _compose($n - 1, $p + 1, $k, $i, $compositions, $parts);
 }
 
 =head2 debruijn_n
