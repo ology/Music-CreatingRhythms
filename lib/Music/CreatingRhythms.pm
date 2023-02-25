@@ -88,6 +88,25 @@ sub part {
     return \@partitions;
 }
 
+=head2 partm
+
+  $partitions = $mcr->partm($n, $m);
+
+Generate all partitions of B<n> into B<m> parts.
+
+=cut
+
+sub partm {
+    my ($self, $n, $m) = @_;
+    my $i = Integer::Partition->new($n);
+    my @partitions;
+    while (my $p = $i->next) {
+        push @partitions, [ sort { $a <=> $b } @$p ]
+          if @$p == $m;
+    }
+    return \@partitions;
+}
+
 =head2 permute
 
   $all_permutations = $mcr->permute(\@parts);
