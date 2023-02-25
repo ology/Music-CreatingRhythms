@@ -152,6 +152,26 @@ subtest debruijn_n => sub {
     is_deeply $got, $expect, 'debruijn_n';
 };
 
+subtest neck => sub {
+    my $mcr = new_ok $module;
+
+    my $expect = [[1],[0]];
+    my $got = $mcr->neck(1);
+    is_deeply $got, $expect, 'neck';
+
+    $expect = [[1,1],[1,0],[0,0]];
+    $got = $mcr->neck(2);
+    is_deeply $got, $expect, 'neck';
+
+    $expect = [[1,1,1],[1,1,0],[1,0,0],[0,0,0]];
+    $got = $mcr->neck(3);
+    is_deeply $got, $expect, 'neck';
+
+    $expect = [[1,1,1,1],[1,1,1,0],[1,1,0,0],[1,0,1,0],[1,0,0,0],[0,0,0,0]];
+    $got = $mcr->neck(4);
+    is_deeply $got, $expect, 'neck';
+};
+
 subtest part => sub {
     my $mcr = new_ok $module;
 
