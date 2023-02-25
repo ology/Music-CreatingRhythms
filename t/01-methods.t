@@ -36,6 +36,38 @@ subtest comp => sub {
     is_deeply $got, $expect, 'comp';
 };
 
+subtest compa => sub {
+    my $mcr = new_ok $module;
+
+    my $expect = [[1]];
+    my $got = $mcr->compa(1, 1);
+    is_deeply $got, $expect, 'compa';
+
+   $expect = [];
+   $got = $mcr->compa(1, 2);
+   is_deeply $got, $expect, 'compa';
+
+    $expect = [[2]];
+    $got = $mcr->compa(2, 2);
+    is_deeply $got, $expect, 'compa';
+
+    $expect = [[1,1,1]];
+    $got = $mcr->compa(3, 1);
+    is_deeply $got, $expect, 'compa';
+
+    $expect = [[1,1,1,1]];
+    $got = $mcr->compa(4, 1);
+    is_deeply $got, $expect, 'compa';
+
+    $expect = [[1,1,1,1],[1,1,2],[1,2,1],[2,1,1],[2,2]];
+    $got = $mcr->compa(4, 1,2);
+    is_deeply $got, $expect, 'compa';
+
+    $expect = [[1,1,1,1],[1,1,2],[1,2,1],[1,3],[2,1,1],[2,2],[3,1]];
+    $got = $mcr->compa(4, 1,2,3);
+    is_deeply $got, $expect, 'compa';
+};
+
 subtest compm => sub {
     my $mcr = new_ok $module;
 
