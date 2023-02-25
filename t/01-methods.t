@@ -56,6 +56,38 @@ subtest part => sub {
     is_deeply $got, $expect, 'part';
 };
 
+subtest parta => sub {
+    my $mcr = new_ok $module;
+
+    my $expect = [[1]];
+    my $got = $mcr->parta(1, 1);
+    is_deeply $got, $expect, 'parta';
+
+    $expect = [];
+    $got = $mcr->parta(1, 2);
+    is_deeply $got, $expect, 'parta';
+
+    $expect = [[2]];
+    $got = $mcr->parta(2, 2);
+    is_deeply $got, $expect, 'parta';
+
+    $expect = [[1,1,1]];
+    $got = $mcr->parta(3, 1);
+    is_deeply $got, $expect, 'parta';
+
+    $expect = [[1,1,1,1]];
+    $got = $mcr->parta(4, 1);
+    is_deeply $got, $expect, 'parta';
+
+    $expect = [[1,1,1,1],[1,1,2],[2,2]];
+    $got = $mcr->parta(4, 1,2);
+    is_deeply $got, $expect, 'parta';
+
+    $expect = [[1,1,1,1],[1,1,2],[2,2],[1,3]];
+    $got = $mcr->parta(4, 1,2,3);
+    is_deeply $got, $expect, 'parta';
+};
+
 subtest partm => sub {
     my $mcr = new_ok $module;
 
