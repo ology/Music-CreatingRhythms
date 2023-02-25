@@ -18,7 +18,7 @@ use namespace::clean;
 
   use Music::CreatingRhythms ();
 
-  my $mbv = Music::CreatingRhythms->new(verbose => 1);
+  my $mcr = Music::CreatingRhythms->new(verbose => 1);
 
 =head1 DESCRIPTION
 
@@ -32,7 +32,7 @@ NB: Arguments are sometimes switched between book and software.
 
 =head2 verbose
 
-  $verbose = $mbv->verbose;
+  $verbose = $mcr->verbose;
 
 Show progress.
 
@@ -48,7 +48,7 @@ has verbose => (
 
 =head2 new
 
-  $mbv = Music::CreatingRhythms->new(verbose => 1);
+  $mcr = Music::CreatingRhythms->new(verbose => 1);
 
 Create a new C<Music::CreatingRhythms> object.
 
@@ -58,7 +58,7 @@ Create a new C<Music::CreatingRhythms> object.
 
 =head2 debruijn_n
 
-  $sequence = $mbv->debruijn_n($n);
+  $sequence = $mcr->debruijn_n($n);
 
 Generate the largest de Bruijn sequence of order B<n>.
 
@@ -72,7 +72,7 @@ sub debruijn_n {
 
 =head2 part
 
-  $partitions = $mbv->part($n);
+  $partitions = $mcr->part($n);
 
 Generate all partitions of B<n>.
 
@@ -90,7 +90,7 @@ sub part {
 
 =head2 permute
 
-  $all_permutations = $mbv->permute(\@parts);
+  $all_permutations = $mcr->permute(\@parts);
 
 Return all permutations of the given B<parts> list as an
 array-reference of array-references.
@@ -108,7 +108,7 @@ sub permute {
 
 =head2 reverse_at
 
-  $sequence = $mbv->reverse_at($n, $parts);
+  $sequence = $mcr->reverse_at($n, $parts);
 
 Reverse a section of a B<parts> array-reference at B<n>.
 
@@ -124,7 +124,7 @@ sub reverse_at {
 
 =head2 rotate_n
 
-  $sequence = $mbv->rotate_n($n, $parts);
+  $sequence = $mcr->rotate_n($n, $parts);
 
 Rotate a necklace of the given B<parts>, B<n> times.
 
