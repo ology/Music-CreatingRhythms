@@ -90,6 +90,44 @@ sub _compose {
     _compose($n - 1, $p + 1, $k, $i, $compositions, $parts);
 }
 
+=head2 compm
+
+  $compositions = $mcr->compm($n, $m);
+
+Generate all compositions of B<n> into B<m> parts.
+
+=cut
+
+sub compm {
+    my ($self, $n, $m) = @_;
+    $m--;
+    my @compositions;
+    my @parts;
+    my $i = 0;
+    _composem($n - 1, 1, 0, $m, \$i, \@compositions, \@parts);
+    return \@compositions;
+}
+
+sub _composem {
+    my ($n, $p, $k, $m, $i, $compositions, $parts) = @_;
+    if ($n == 0) {
+        if ($k == $m) {
+            while ($n < $k) {
+                push @{ $compositions->[$$i] }, $parts->[$n];
+                $n++;
+            }
+            push @{ $compositions->[$$i] }, $p;
+            $$i++;
+        }
+        return;
+    }
+    if ($k < $m) {
+        $parts->[$k] = $p;
+        _composem($n - 1, 1, $k + 1, $m, $i, $compositions, $parts);
+    }
+    _composem($n - 1, $p + 1, $k, $m, $i, $compositions, $parts);
+}
+
 =head2 debruijn_n
 
   $sequence = $mcr->debruijn_n($n);
