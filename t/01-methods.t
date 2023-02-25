@@ -36,6 +36,38 @@ subtest comp => sub {
     is_deeply $got, $expect, 'comp';
 };
 
+subtest compm => sub {
+    my $mcr = new_ok $module;
+
+    my $expect = [[1]];
+    my $got = $mcr->compm(1, 1);
+    is_deeply $got, $expect, 'compm';
+
+    $expect = [];
+    $got = $mcr->compm(1, 2);
+    is_deeply $got, $expect, 'compm';
+
+    $expect = [[1,1]];
+    $got = $mcr->compm(2, 2);
+    is_deeply $got, $expect, 'compm';
+
+    $expect = [[1,2],[2,1]];
+    $got = $mcr->compm(3, 2);
+    is_deeply $got, $expect, 'compm';
+
+    $expect = [[1,3],[2,2],[3,1]];
+    $got = $mcr->compm(4, 2);
+    is_deeply $got, $expect, 'compm';
+
+    $expect = [[1,4],[2,3],[3,2],[4,1]];
+    $got = $mcr->compm(5, 2);
+    is_deeply $got, $expect, 'compm';
+
+    $expect = [[1,5],[2,4],[3,3],[4,2],[5,1]];
+    $got = $mcr->compm(6, 2);
+    is_deeply $got, $expect, 'compm';
+};
+
 subtest debruijn_n => sub {
     my $mcr = new_ok $module;
 
