@@ -91,9 +91,10 @@ sub part {
 
 =head2 parta
 
-  $partitions = $mcr->parta($n, @parts);
+  $partitions = $mcr->parta($n, @intervals);
 
-Generate all partitions of B<n> with allowed intervals B<p1, p2, ... pn>.
+Generate all partitions of B<n> with allowed intervals
+B<p1, p2, ... pn>.
 
 =cut
 
@@ -105,6 +106,27 @@ sub parta {
     while (my $p = $i->next) {
       push @partitions, [ sort { $a <=> $b } @$p ]
         if all { $_ =~ /^$re$/ } @$p;
+    }
+    return \@partitions;
+}
+
+=head2 partam
+
+  $partitions = $mcr->partam($n, $m, @intervals);
+
+Generate all partitions of B<n> with B<m> parts from the intervals
+B<p1, p2, ... pn>.
+
+=cut
+
+sub partam {
+    my ($self, $n, $m, @parts) = @_;
+    my $re = list2re @parts;
+    my $i = Integer::Partition->new($n);
+    my @partitions;
+    while (my $p = $i->next) {
+        push @partitions, [ sort { $a <=> $b } @$p ]
+          if @$p == $m && all { $_ =~ /^$re$/ } @$p;
     }
     return \@partitions;
 }
