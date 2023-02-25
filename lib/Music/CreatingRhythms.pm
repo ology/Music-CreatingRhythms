@@ -92,7 +92,7 @@ sub _compose {
 
 =head2 compa
 
-  $partitions = $mcr->compa($n, @intervals);
+  $compositions = $mcr->compa($n, @intervals);
 
 Generate compositions of B<n> with allowed intervals 
 B<p1, p2, ... pn>.
