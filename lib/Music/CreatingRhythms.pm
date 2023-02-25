@@ -90,6 +90,44 @@ sub _compose {
     _compose($n - 1, $p + 1, $k, $i, $compositions, $parts);
 }
 
+=head2 compa
+
+  $partitions = $mcr->compa($n, @intervals);
+
+Generate compositions of B<n> with allowed intervals 
+B<p1, p2, ... pn>.
+
+=cut
+
+sub compa {
+    my ($self, $n, @intervals) = @_;
+    my @compositions;
+    my @parts;
+    my $i = 0;
+    _composea($n - 1, 1, 0, \$i, \@compositions, \@parts, \@intervals);
+    return \@compositions;
+}
+
+sub _composea {
+  my ($n, $p, $k, $i, $compositions, $parts, $intervals) = @_;
+  if ($n == 0) {
+    if (_allowed($p, $intervals)) {
+      while ($n < $k) {
+        push @{ $compositions->[$i] }, $parts->[$n];
+        $n++;
+      }
+      push @{ $compositions->[$i] }, $p;
+      $i++;
+    }
+    return;
+  }
+  if (_allowed($p, $intervals)) {
+    $parts->[$k] = $p;
+    _composea($n - 1, 1, $k + 1, $i, $compositions, $parts, $intervals);
+  }
+  _composea($n - 1, $p + 1, $k, $i, $compositions, $parts, $intervals);
+}
+
 =head2 compm
 
   $compositions = $mcr->compm($n, $m);
