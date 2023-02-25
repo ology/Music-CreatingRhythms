@@ -56,6 +56,38 @@ subtest part => sub {
     is_deeply $got, $expect, 'part';
 };
 
+subtest partm => sub {
+    my $mcr = new_ok $module;
+
+    my $expect = [[1]];
+    my $got = $mcr->partm(1, 1);
+    is_deeply $got, $expect, 'partm';
+
+    $expect = [];
+    $got = $mcr->partm(1, 2);
+    is_deeply $got, $expect, 'partm';
+
+    $expect = [[1,1]];
+    $got = $mcr->partm(2, 2);
+    is_deeply $got, $expect, 'partm';
+
+    $expect = [[1,2]];
+    $got = $mcr->partm(3, 2);
+    is_deeply $got, $expect, 'partm';
+
+    $expect = [[1,3],[2,2]];
+    $got = $mcr->partm(4, 2);
+    is_deeply $got, $expect, 'partm';
+
+    $expect = [[1,4],[2,3]];
+    $got = $mcr->partm(5, 2);
+    is_deeply $got, $expect, 'partm';
+
+    $expect = [[1,5],[2,4],[3,3]];
+    $got = $mcr->partm(6, 2);
+    is_deeply $got, $expect, 'partm';
+};
+
 subtest permute => sub {
     my $mcr = new_ok $module;
 
