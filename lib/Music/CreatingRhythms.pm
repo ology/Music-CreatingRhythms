@@ -70,7 +70,7 @@ sub comp {
     my @compositions;
     my @parts;
     my $i = 0;
-    _compose($n - 1, 1, 0, $i, \@compositions, \@parts);
+    _compose($n - 1, 1, 0, \$i, \@compositions, \@parts);
     return \@compositions;
 }
 
@@ -78,11 +78,11 @@ sub _compose {
     my ($n, $p, $m, $i, $compositions, $parts) = @_;
     if ($n == 0) {
         while ($n < $m) {
-            push @{ $compositions->[$i] }, $parts->[$n];
+            push @{ $compositions->[$$i] }, $parts->[$n];
             $n++;
         }
-        push @{ $compositions->[$i] }, $p;
-        $i++;
+        push @{ $compositions->[$$i] }, $p;
+        $$i++;
         return;
     }
     $parts->[$m] = $p;
