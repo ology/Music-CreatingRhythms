@@ -8,8 +8,9 @@ use Moo;
 use strictures 2;
 use Algorithm::Combinatorics qw(permutations);
 use Carp qw(croak);
+use Data::Munge qw(list2re);
 use Integer::Partition ();
-use List::Util qw(any);
+use List::Util qw(all any);
 use Math::Sequence::DeBruijn qw(debruijn);
 use Music::AtonalUtil ();
 use namespace::clean;
@@ -84,6 +85,26 @@ sub part {
     my @partitions;
     while (my $p = $i->next) {
         push @partitions, [ sort { $a <=> $b } @$p ];
+    }
+    return \@partitions;
+}
+
+=head2 parta
+
+  $partitions = $mcr->parta($n, @parts);
+
+Generate all partitions of B<n> with allowed parts B<p1, p2, ... pn>.
+
+=cut
+
+sub parta {
+    my ($self, $n, @parts) = @_;
+    my $re = list2re @parts;
+    my $i = Integer::Partition->new($n, { lexicographic => 1 });
+    my @partitions;
+    while (my $p = $i->next) {
+      push @partitions, [ sort { $a <=> $b } @$p ]
+        if all { $_ =~ /^$re$/ } @$p;
     }
     return \@partitions;
 }
@@ -171,6 +192,8 @@ L<https://abrazol.com/books/rhythm1/> "Creating Rhythms"
 The F<t/01-methods.t> and F<eg/*> programs included with this distribution.
 
 L<Algorithm::Combinatorics>
+
+L<Data::Munge>
 
 L<Integer::Partition>
 
