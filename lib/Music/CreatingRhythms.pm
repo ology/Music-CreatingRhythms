@@ -1,8 +1,8 @@
 package Music::CreatingRhythms;
 
-# ABSTRACT: Perl from the C code of the book
+# ABSTRACT: Ported Perl from the book's C code
 
-our $VERSION = '0.0100';
+our $VERSION = '0.0101';
 
 use Moo;
 use strictures 2;
