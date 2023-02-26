@@ -152,6 +152,38 @@ subtest debruijn_n => sub {
     is_deeply $got, $expect, 'debruijn_n';
 };
 
+subtest euclid => sub {
+    my $mcr = new_ok $module;
+
+    my $expect = [1];
+    my $got = $mcr->euclid(1, 1);
+    is_deeply $got, $expect, 'euclid';
+
+    $expect = [1,0];
+    $got = $mcr->euclid(1, 2);
+    is_deeply $got, $expect, 'euclid';
+
+    $expect = [1,0,0];
+    $got = $mcr->euclid(1, 3);
+    is_deeply $got, $expect, 'euclid';
+
+    $expect = [1,0,0,0];
+    $got = $mcr->euclid(1, 4);
+    is_deeply $got, $expect, 'euclid';
+
+    $expect = [1,0,1,0];
+    $got = $mcr->euclid(2, 4);
+    is_deeply $got, $expect, 'euclid';
+
+    $expect = [1,1,0,1];
+    $got = $mcr->euclid(3, 4);
+    is_deeply $got, $expect, 'euclid';
+
+    $expect = [1,1,1,1];
+    $got = $mcr->euclid(4, 4);
+    is_deeply $got, $expect, 'euclid';
+};
+
 subtest invert_at => sub {
     my $mcr = new_ok $module;
 
