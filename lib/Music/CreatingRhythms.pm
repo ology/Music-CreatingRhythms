@@ -143,7 +143,7 @@ sub _compose {
 
   $compositions = $mcr->compa($n, @intervals);
 
-Generate compositions of B<n> with allowed intervals 
+Generate compositions of B<n> with allowed intervals
 B<p1, p2, ... pn>.
 
 =cut
