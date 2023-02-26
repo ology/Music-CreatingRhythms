@@ -280,6 +280,49 @@ sub _neckbin {
     }
 }
 
+=head2 neckm
+
+  $necklaces = $mcr->neckm($n, $m);
+
+Generate all binary necklaces of length B<n> with B<m> ones.
+
+=cut
+
+sub neckm {
+    my ($self, $n, $m) = @_;
+    my @necklaces;
+    my @parts = (1);
+    my $i = 0;
+    _neckbinm($n, 1, 1, 0, $m, \$i, \@necklaces, \@parts);
+    return \@necklaces;
+}
+
+sub _neckbinm {
+    my ($n, $k, $l, $p, $m, $i, $necklaces, $parts) = @_;
+    # k = length of necklace
+    # l = length of longest prefix that is a lyndon word
+    # p = number of parts (ones)
+    if ($k > $n) {
+        if (($n % $l) == 0 && $p == $m) {
+            for $k (1 .. $n) {
+              push @{ $necklaces->[$$i] }, $parts->[$k];
+            }
+            $$i++;
+        }
+    }
+    else {
+        $parts->[$k] = $parts->[ $k - $l ];
+        if ($parts->[$k] == 1) {
+            _neckbinm($n, $k + 1, $l, $p + 1, $m, $i, $necklaces, $parts);
+            $parts->[$k] = 0;
+            _neckbinm($n, $k + 1, $k, $p, $m, $i, $necklaces, $parts);
+        }
+        else {
+            _neckbinm($n, $k + 1, $l, $p, $m, $i, $necklaces, $parts);
+        }
+    }
+}
+
 =head2 part
 
   $partitions = $mcr->part($n);
