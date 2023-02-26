@@ -616,7 +616,7 @@ __END__
 
 L<https://abrazol.com/books/rhythm1/> "Creating Rhythms"
 
-The F<t/01-methods.t> and F<eg/*> programs included with this distribution.
+The F<t/01-methods.t> program included with this distribution.
 
 L<Algorithm::Combinatorics>
 
