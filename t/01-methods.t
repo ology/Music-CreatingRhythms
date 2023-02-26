@@ -16,6 +16,66 @@ subtest defaults => sub {
     is $mcr->verbose, 1, 'verbose';
 };
 
+subtest chsequl => sub {
+    my $mcr = new_ok $module;
+
+    my $expect = [0];
+    my $got = $mcr->chsequl('l', 1, 0);
+    is_deeply $got, $expect, 'chsequl';
+
+    $expect = [1];
+    $got = $mcr->chsequl('u', 1, 0);
+    is_deeply $got, $expect, 'chsequl';
+
+    $expect = [0,1];
+    $got = $mcr->chsequl('l', 1, 1);
+    is_deeply $got, $expect, 'chsequl';
+
+    $expect = [1,0];
+    $got = $mcr->chsequl('u', 1, 1);
+    is_deeply $got, $expect, 'chsequl';
+
+    $expect = [0,0,1];
+    $got = $mcr->chsequl('l', 1, 2);
+    is_deeply $got, $expect, 'chsequl';
+
+    $expect = [1,0,0];
+    $got = $mcr->chsequl('u', 1, 2);
+    is_deeply $got, $expect, 'chsequl';
+
+    $expect = [0,1];
+    $got = $mcr->chsequl('l', 2, 0);
+    is_deeply $got, $expect, 'chsequl';
+
+    $expect = [1,1];
+    $got = $mcr->chsequl('u', 2, 0);
+    is_deeply $got, $expect, 'chsequl';
+
+    $expect = [0,1,1];
+    $got = $mcr->chsequl('l', 2, 1);
+    is_deeply $got, $expect, 'chsequl';
+
+    $expect = [1,1,0];
+    $got = $mcr->chsequl('u', 2, 1);
+    is_deeply $got, $expect, 'chsequl';
+
+    $expect = [0,1,0,1];
+    $got = $mcr->chsequl('l', 2, 2);
+    is_deeply $got, $expect, 'chsequl';
+
+    $expect = [1,0,1,0];
+    $got = $mcr->chsequl('u', 2, 2);
+    is_deeply $got, $expect, 'chsequl';
+
+    $expect = [0,1,1,0,1,1,0,1,1,0,1,1,0,1,1,1];
+    $got = $mcr->chsequl('l', 11, 5);
+    is_deeply $got, $expect, 'chsequl';
+
+    $expect = [1,1,1,0,1,1,0,1,1,0,1,1,0,1,1,0];
+    $got = $mcr->chsequl('u', 11, 5);
+    is_deeply $got, $expect, 'chsequl';
+};
+
 subtest comp => sub {
     my $mcr = new_ok $module;
 
