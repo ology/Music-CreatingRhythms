@@ -234,6 +234,39 @@ subtest necka => sub {
     is_deeply $got, $expect, 'necka';
 };
 
+subtest neckam => sub {
+    my $mcr = new_ok $module;
+
+    my $expect = [[1]];
+    my $got = $mcr->neckam(1, 1, 1);
+    is_deeply $got, $expect, 'neckam';
+
+    $expect = [];
+    $got = $mcr->neckam(1, 2, 1);
+    is_deeply $got, $expect, 'neckam';
+
+    $expect = [[1,1]];
+    $got = $mcr->neckam(2, 2, 1);
+    is_deeply $got, $expect, 'neckam';
+
+    $expect = [[1,1,1]];
+    $got = $mcr->neckam(3, 3, 1);
+    is_deeply $got, $expect, 'neckam';
+
+    $expect = [[1,1,1,1]];
+    $got = $mcr->neckam(4, 4, 1);
+    is_deeply $got, $expect, 'neckam';
+
+    $expect = [[1,1,1,0]];
+    $got = $mcr->neckam(4, 3, 1,2);
+    is_deeply $got, $expect, 'neckam';
+
+    $expect = [[1,1,0,0],[1,0,1,0]];
+    $got = $mcr->neckam(4, 2, 1,2,3);
+    is_deeply $got, $expect, 'neckam';
+};
+
+
 subtest neckm => sub {
     my $mcr = new_ok $module;
 
