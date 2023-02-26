@@ -63,16 +63,17 @@ Create a new C<Music::CreatingRhythms> object.
 
 =head2 chsequl
 
-  $sequence = $mcr->chsequl($n);
+  $sequence = $mcr->chsequl($t, $p, $q);
+  $sequence = $mcr->chsequl($t, $p, $q, $n);
 
 Generate the upper or lower Christoffel word for p/q
 
 Arguments:
 
-  t = required type of word (u: upper, l: lower)
-  p = required numerator of slope
-  q = required denominator of slope
-  n = optional number of terms to generate, default: p+q
+  $t: required type of word (u: upper, l: lower)
+  $p: required numerator of slope
+  $q: required denominator of slope
+  $n: optional number of terms to generate, default: p+q
 
 =cut
 
