@@ -323,6 +323,49 @@ sub _neckbina {
     }
 }
 
+=head2 neckam
+
+  $necklaces = $mcr->neckam($n, $m, @intervals);
+
+Generate binary necklaces of length B<n> with B<m> ones, and allowed
+intervals B<p1, p2, ... pn>.
+
+=cut
+
+sub neckam {
+    my ($self, $n, $m, @intervals) = @_;
+    my @necklaces;
+    my @parts = (1);
+    my $i = 0;
+    _neckbinam($n, 1, 1, 0, 1, $m, \$i, \@necklaces, \@parts, \@intervals);
+    return \@necklaces;
+}
+
+sub _neckbinam {
+    my ($n, $k, $l, $q, $p, $m, $i, $necklaces, $parts, $intervals) = @_;
+    if ($k > $n) {
+        if(($n % $l) == 0 && _allowed($p, $intervals) && $p <= $n && $q == $m) {
+            for $k (1 .. $n) {
+                push @{ $necklaces->[$$i] }, $parts->[$k];
+            }
+            $$i++;
+        }
+    }
+    else {
+        $parts->[$k] = $parts->[ $k - $l ];
+        if ($parts->[$k] == 1) {
+            if (_allowed($p, $intervals) || $k == 1) {
+                _neckbinam($n, $k + 1, $l, $q + 1, 1, $m, $i, $necklaces, $parts, $intervals);
+            }
+            $parts->[$k] = 0;
+            _neckbinam($n, $k + 1, $k, $q, $p + 1, $m, $i, $necklaces, $parts, $intervals);
+        }
+        else {
+            _neckbinam($n, $k + 1, $l, $q, $p + 1, $m, $i, $necklaces, $parts, $intervals);
+        }
+    }
+}
+
 =head2 neckm
 
   $necklaces = $mcr->neckm($n, $m);
