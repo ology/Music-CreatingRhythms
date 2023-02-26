@@ -236,11 +236,11 @@ sub euclid {
     my ($self, $n, $m) = @_;
     my $intercept = 1;
     my $slope = $n / $m;
-    my @onsets = ('0') x $m;
+    my @pattern = ('0') x $m;
     for my $y ( 1 .. $n ) {
-        $onsets[ sprintf '%.0f', ( $y - $intercept ) / $slope ] = '1';
+        $pattern[ sprintf '%.0f', ( $y - $intercept ) / $slope ] = '1';
     }
-    return \@onsets;
+    return \@pattern;
 }
 
 =head2 invert_at
