@@ -202,6 +202,38 @@ subtest neck => sub {
     is_deeply $got, $expect, 'neck';
 };
 
+subtest necka => sub {
+    my $mcr = new_ok $module;
+
+    my $expect = [[1]];
+    my $got = $mcr->necka(1, 1);
+    is_deeply $got, $expect, 'necka';
+
+   $expect = [];
+   $got = $mcr->necka(1, 2);
+   is_deeply $got, $expect, 'necka';
+
+    $expect = [[1,0]];
+    $got = $mcr->necka(2, 2);
+    is_deeply $got, $expect, 'necka';
+
+    $expect = [[1,1,1]];
+    $got = $mcr->necka(3, 1);
+    is_deeply $got, $expect, 'necka';
+
+    $expect = [[1,1,1,1]];
+    $got = $mcr->necka(4, 1);
+    is_deeply $got, $expect, 'necka';
+
+    $expect = [[1,1,1,1],[1,1,1,0],[1,0,1,0]];
+    $got = $mcr->necka(4, 1,2);
+    is_deeply $got, $expect, 'necka';
+
+    $expect = [[1,1,1,1],[1,1,1,0],[1,1,0,0],[1,0,1,0]];
+    $got = $mcr->necka(4, 1,2,3);
+    is_deeply $got, $expect, 'necka';
+};
+
 subtest neckm => sub {
     my $mcr = new_ok $module;
 
