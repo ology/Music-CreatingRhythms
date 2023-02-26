@@ -19,7 +19,7 @@ use namespace::clean;
 
   use Music::CreatingRhythms ();
   my $mcr = Music::CreatingRhythms->new;
-  my $foo = $mcr->foo(...);
+  my $foo = $mcr->foo('...');
 
 =head1 DESCRIPTION
 
