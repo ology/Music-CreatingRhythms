@@ -223,6 +223,26 @@ sub debruijn_n {
     return [ split //, $sequence ];
 }
 
+=head2 euclid
+
+  $sequence = $mcr->euclid($n, $m);
+
+Generate a Euclidean rhythm given B<n> onsets distributed over B<m>
+beats.
+
+=cut
+
+sub euclid {
+    my ($self, $n, $m) = @_;
+    my $intercept = 1;
+    my $slope = $n / $m;
+    my @onsets = ('0') x $m;
+    for my $y ( 1 .. $n ) {
+        $onsets[ sprintf '%.0f', ( $y - $intercept ) / $slope ] = '1';
+    }
+    return \@onsets;
+}
+
 =head2 invert_at
 
   $sequence = $mcr->invert_at($n, $parts);
