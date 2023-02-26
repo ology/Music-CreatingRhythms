@@ -66,7 +66,7 @@ Create a new C<Music::CreatingRhythms> object.
   $sequence = $mcr->chsequl($t, $p, $q);
   $sequence = $mcr->chsequl($t, $p, $q, $n);
 
-Generate the upper or lower Christoffel word for p/q
+Generate the upper or lower Christoffel word for B<p> and B<q>.
 
 Arguments:
 
