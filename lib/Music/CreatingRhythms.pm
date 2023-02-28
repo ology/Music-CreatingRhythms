@@ -62,6 +62,36 @@ Create a new C<Music::CreatingRhythms> object.
 
 =cut
 
+=head2 cfcv
+
+  $sequence = $mcr->cfcv(@terms);
+
+Calculate a continued fraction convergent given the B<terms>.
+
+=cut
+
+sub cfcv {
+    my ($self, @terms) = @_;
+
+    my $p0 = 0;
+    my $p1 = 1;
+    my $p2;
+    my $q0 = 1;
+    my $q1 = 0;
+    my $q2;
+
+    for my $t (@terms) {
+      $p2 = $t * $p1 + $p0;
+      $q2 = $t * $q1 + $q0;
+      $p0 = $p1;
+      $p1 = $p2;
+      $q0 = $q1;
+      $q1 = $q2;
+    }
+
+    return [ $p2, $q2 ];
+}
+
 =head2 cfsqrt
 
   $sequence = $mcr->cfsqrt($n, $m);
