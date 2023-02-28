@@ -11,6 +11,7 @@ use Carp qw(croak);
 use Data::Munge qw(list2re);
 use Integer::Partition ();
 use List::Util qw(all any);
+use Math::NumSeq::SqrtContinued ();
 use Math::Sequence::DeBruijn qw(debruijn);
 use Music::AtonalUtil ();
 use namespace::clean;
@@ -53,13 +54,34 @@ has verbose => (
 
 =head2 new
 
-  $mcr = Music::CreatingRhythms->new(verbose => 1);
+  $mcr = Music::CreatingRhythms->new;
 
 Create a new C<Music::CreatingRhythms> object.
 
 =for Pod::Coverage BUILD
 
 =cut
+
+=head2 cfsqrt
+
+  $sequence = $mcr->cfsqrt($n, $m);
+
+Calculate the continued fraction for C<sqrt(n)> to B<m> digits, where
+B<n> and B<m> are integers.
+
+=cut
+
+sub cfsqrt {
+    my ($self, $n, $m) = @_;
+    $m ||= $n;
+    my @terms;
+    my $seq = Math::NumSeq::SqrtContinued->new(sqrt => $n);
+    for my $i (1 .. $m) {
+        my ($i, $value) = $seq->next;
+        push @terms, $value;
+    }
+    return \@terms;
+}
 
 =head2 chsequl
 
