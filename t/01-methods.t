@@ -23,6 +23,10 @@ subtest cfsqrt => sub {
     my $got = $mcr->cfsqrt(2);
     is_deeply $got, $expect, 'cfsqrt';
 
+    $expect = [1,2,2];
+    $got = $mcr->cfsqrt(2, 3);
+    is_deeply $got, $expect, 'cfsqrt';
+
     $expect = [1,1,2];
     $got = $mcr->cfsqrt(3);
     is_deeply $got, $expect, 'cfsqrt';
