@@ -16,6 +16,28 @@ subtest defaults => sub {
     is $mcr->verbose, 1, 'verbose';
 };
 
+subtest cfcv => sub {
+    my $mcr = new_ok $module;
+
+    # sqrt(2)
+    my $expect = [7,5];
+    my $got = $mcr->cfcv(1, 2, 2);
+    is_deeply $got, $expect, 'cfcv';
+
+    $expect = [17,12];
+    $got = $mcr->cfcv(1, 2, 2, 2);
+    is_deeply $got, $expect, 'cfcv';
+
+    # sqrt(3)
+    $expect = [5,3];
+    $got = $mcr->cfcv(1, 1, 2);
+    is_deeply $got, $expect, 'cfcv';
+
+    $expect = [19,11];
+    $got = $mcr->cfcv(1, 1, 2, 1, 2);
+    is_deeply $got, $expect, 'cfcv';
+};
+
 subtest cfsqrt => sub {
     my $mcr = new_ok $module;
 
