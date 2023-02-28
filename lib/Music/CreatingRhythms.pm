@@ -58,8 +58,6 @@ has verbose => (
 
 Create a new C<Music::CreatingRhythms> object.
 
-=for Pod::Coverage BUILD
-
 =cut
 
 =head2 cfcv
