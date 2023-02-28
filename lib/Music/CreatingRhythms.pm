@@ -605,9 +605,9 @@ sub partm {
     return \@partitions;
 }
 
-=head2 permute
+=head2 permi
 
-  $all_permutations = $mcr->permute(\@parts);
+  $all_permutations = $mcr->permi(\@parts);
 
 Return all permutations of the given B<parts> list as an
 array-reference of array-references.
@@ -617,7 +617,7 @@ module.)
 
 =cut 
 
-sub permute {
+sub permi {
     my ($self, $parts) = @_;
     my @permutations = permutations($parts);
     return \@permutations;

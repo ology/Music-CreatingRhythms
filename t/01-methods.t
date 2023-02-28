@@ -553,14 +553,14 @@ subtest partm => sub {
     is_deeply $got, $expect, 'partm';
 };
 
-subtest permute => sub {
+subtest permi => sub {
     my $mcr = new_ok $module;
 
     my $parts = [qw(1 0 1)];
 
     my $expect = [[1,0,1],[1,1,0],[0,1,1],[0,1,1],[1,1,0],[1,0,1]];
-    my $got = $mcr->permute($parts);
-    is_deeply $got, $expect, 'permute';
+    my $got = $mcr->permi($parts);
+    is_deeply $got, $expect, 'permi';
 };
 
 subtest reverse_at => sub {
