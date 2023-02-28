@@ -77,7 +77,7 @@ sub cfsqrt {
     my @terms;
     my $seq = Math::NumSeq::SqrtContinued->new(sqrt => $n);
     for my $i (1 .. $m) {
-        my ($i, $value) = $seq->next;
+        my ($j, $value) = $seq->next;
         push @terms, $value;
     }
     return \@terms;
