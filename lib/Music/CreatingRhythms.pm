@@ -623,6 +623,45 @@ sub permi {
     return \@permutations;
 }
 
+=head2 pfold
+
+  $sequences = $mcr->pfold($n, $m, $f);
+
+Generate fold sequences.
+
+=cut
+
+sub pfold {
+    my ($self, $n, $m, $f) = @_;
+    my @sequence;
+    my ($j, $k);
+    for (my $i = 1; $i <= $n; ++$i) {
+      _oddeven($i, \$k, \$j);
+      $k = $k % $m;
+      my $y = $f & (1 << $k) ? 1 : 0;
+      if ((2 * $j + 1) % 4 > 1) {
+          $y = 1 - $y;
+      }
+      push @sequence, $y;
+    }
+    return \@sequence;
+}
+
+# find x and y such that n = 2^x * (2*y+1)
+sub _oddeven {
+    my ($n, $x, $y) = @_;
+    my $k;
+    # two's complement of n = -n or ~n + 1
+    my $l = $n & -$n; # this is 2^a
+    $$y = ($n / $l - 1) / 2;
+    for ($k = 0; $l > 1; ++$k) {
+        $l >>= 1;
+    }
+    $$x = $k;
+
+    return;
+}
+
 =head2 reverse_at
 
   $sequence = $mcr->reverse_at($n, $parts);
