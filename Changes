@@ -1,6 +1,8 @@
 Revision history for Music-CreatingRhythms
 
 {{$NEXT}}
+    - Add the pfold() method.
+    - Add the eg/pfold-set.pl program.
 
 0.0200 2023-02-28 17:44:56
     - Add the cfcv() and cfsqrt() routines from the book.
