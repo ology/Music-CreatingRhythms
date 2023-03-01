@@ -11,6 +11,9 @@ my $n = shift || 16;  # number of terms
 my $m = shift || 16;  # maximum iteration
 my $f = shift || 4;   # folding function number 0 to (2^m)-1
 
+die "Invalid folding function: $f\n"
+    if $f > (2 ** $m) - 1;
+
 my $mcr = Music::CreatingRhythms->new;
 
 for my $i (0 .. $m - 1) {
