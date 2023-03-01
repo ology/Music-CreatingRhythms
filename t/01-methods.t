@@ -563,6 +563,19 @@ subtest permi => sub {
     is_deeply $got, $expect, 'permi';
 };
 
+subtest pfold => sub {
+    my $mcr = new_ok $module;
+
+    my $expect = [0,0,1,0,0,1,1,0,0,0,1,1,0,1,1];
+    my $got = $mcr->pfold(15, 4, 0);
+    is_deeply $got, $expect, 'pfold';
+
+    $expect = [1,0,0,0,1,1,0,0,1,0,0,1,1,1,0];
+    $got = $mcr->pfold(15, 4, 1);
+    is_deeply $got, $expect, 'pfold';
+};
+done_testing();exit;
+
 subtest reverse_at => sub {
     my $mcr = new_ok $module;
 
