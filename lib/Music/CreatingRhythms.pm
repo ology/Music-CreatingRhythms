@@ -62,7 +62,7 @@ Create a new C<Music::CreatingRhythms> object.
 
 =head2 cfcv
 
-  $sequence = $mcr->cfcv(@terms);
+  $convergent = $mcr->cfcv(@terms);
 
 Calculate a continued fraction convergent given the B<terms>.
 
@@ -92,7 +92,7 @@ sub cfcv {
 
 =head2 cfsqrt
 
-  $sequence = $mcr->cfsqrt($n, $m);
+  $terms = $mcr->cfsqrt($n, $m);
 
 Calculate the continued fraction for C<sqrt(n)> to B<m> digits, where
 B<n> and B<m> are integers.
