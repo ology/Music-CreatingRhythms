@@ -1,7 +1,9 @@
 Revision history for Music-CreatingRhythms
 
 {{$NEXT}}
+    - Add the cfcv() and cfsqrt() routines from the book.
     - Add the eg/chsequl-set.pl program.
+    - Add the eg/chseqcv-set.pl program.
 
 0.0101 2023-02-26 09:06:32
     - Improve documentation.
