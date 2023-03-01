@@ -2,7 +2,7 @@
 use strict;
 use warnings;
 
-# Generate Christoffel word sets.
+# Generate pfold binary sequences.
 
 use Data::Dumper::Compact qw(ddc);
 use Music::CreatingRhythms ();
