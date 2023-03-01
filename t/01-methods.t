@@ -574,7 +574,6 @@ subtest pfold => sub {
     $got = $mcr->pfold(15, 4, 1);
     is_deeply $got, $expect, 'pfold';
 };
-done_testing();exit;
 
 subtest reverse_at => sub {
     my $mcr = new_ok $module;
