@@ -181,7 +181,8 @@ partitions of B<n> with the duplicates removed.
 
 Example:
 
-  $got = $mcr->comp(4); # [1,1,1,1],[1,1,2],[1,2,1],[1,3],[2,1,1],[2,2],[3,1],[4]
+  $got = $mcr->comp(4);
+  # [1,1,1,1],[1,1,2],[1,2,1],[1,3],[2,1,1],[2,2],[3,1],[4]
 
 =cut
 
