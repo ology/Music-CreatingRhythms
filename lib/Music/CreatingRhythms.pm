@@ -517,6 +517,10 @@ sub _neckbina {
 Generate binary necklaces of length B<n> with B<m> ones, and allowed
 intervals B<p1, p2, ... pn>.
 
+Example:
+
+  $got = $mcr->neckam(4, 3, 1,2); # [[1,1,1,0]]
+
 =cut
 
 sub neckam {
@@ -558,6 +562,10 @@ sub _neckbinam {
   $necklaces = $mcr->neckm($n, $m);
 
 Generate all binary necklaces of length B<n> with B<m> ones.
+
+Example:
+
+  $got = $mcr->neckm(4, 2); # [[1,1,0,0],[1,0,1,0]]
 
 =cut
 
