@@ -613,6 +613,10 @@ sub parta {
 Generate all partitions of B<n> with B<m> parts from the intervals
 B<p1, p2, ... pn>.
 
+Example:
+
+  $got = $mcr->partam(4, 2, 2); # [2,2]
+
 =cut
 
 sub partam {
@@ -632,6 +636,10 @@ sub partam {
   $partitions = $mcr->partm($n, $m);
 
 Generate all partitions of B<n> into B<m> parts.
+
+Example:
+
+  $got = $mcr->partm(4, 2); # [1,3],[2,2]
 
 =cut
 
