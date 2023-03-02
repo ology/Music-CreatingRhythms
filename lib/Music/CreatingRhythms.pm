@@ -664,6 +664,11 @@ array-reference of array-references.
 (For an efficient iterator, check out the L<Algorithm::Combinatorics>
 module.)
 
+Example:
+
+  my $parts = [qw(1 0 1)];
+  my $got = $mcr->permi($parts); # [1,0,1],[1,1,0],[0,1,1],[0,1,1],[1,1,0],[1,0,1]
+
 =cut 
 
 sub permi {
