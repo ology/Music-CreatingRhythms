@@ -747,11 +747,11 @@ Reverse a section of a B<parts> sequence at B<n>.
 
 Examples:
 
-    $parts = [qw(1 0 1 0 0)];
-    $got = $mcr->reverse_at(0, $parts); # 0 0 1 0 1
-    $got = $mcr->reverse_at(1, $parts); # 1 0 0 1 0
-    $got = $mcr->reverse_at(2, $parts); # 1 0 0 0 1
-    $got = $mcr->reverse_at(3, $parts); # 1 0 1 0 0
+  $parts = [qw(1 0 1 0 0)];
+  $got = $mcr->reverse_at(0, $parts); # 0 0 1 0 1
+  $got = $mcr->reverse_at(1, $parts); # 1 0 0 1 0
+  $got = $mcr->reverse_at(2, $parts); # 1 0 0 0 1
+  $got = $mcr->reverse_at(3, $parts); # 1 0 1 0 0
 
 =cut
 
@@ -768,6 +768,16 @@ sub reverse_at {
   $sequence = $mcr->rotate_n($n, $parts);
 
 Rotate a necklace of the given B<parts>, B<n> times.
+
+Examples:
+
+  $parts = [qw(1 0 1 0 0)];
+  $got = $mcr->rotate_n(0, $parts); # 1 0 1 0 0
+  $got = $mcr->rotate_n(1, $parts); # 0 1 0 1 0
+  $got = $mcr->rotate_n(2, $parts); # 0 0 1 0 1
+  $got = $mcr->rotate_n(3, $parts); # 1 0 0 1 0
+  $got = $mcr->rotate_n(4, $parts); # 0 1 0 0 1
+  $got = $mcr->rotate_n(5, $parts); # 1 0 1 0 0
 
 =cut
 
