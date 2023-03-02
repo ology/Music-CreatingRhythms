@@ -570,8 +570,24 @@ subtest permi => sub {
 subtest pfold => sub {
     my $mcr = new_ok $module;
 
-    my $expect = [0,0,1,0,0,1,1,0,0,0,1,1,0,1,1];
-    my $got = $mcr->pfold(15, 4, 0);
+    my $expect = [1];
+    my $got = $mcr->pfold(1, 1, 1);
+    is_deeply $got, $expect, 'pfold';
+
+    $expect = [1,1];
+    $got = $mcr->pfold(2, 1, 1);
+    is_deeply $got, $expect, 'pfold';
+
+    $expect = [1,1,0];
+    $got = $mcr->pfold(3, 1, 1);
+    is_deeply $got, $expect, 'pfold';
+
+    $expect = [1,1,0,1];
+    $got = $mcr->pfold(4, 1, 1);
+    is_deeply $got, $expect, 'pfold';
+
+    $expect = [0,0,1,0,0,1,1,0,0,0,1,1,0,1,1];
+    $got = $mcr->pfold(15, 4, 0);
     is_deeply $got, $expect, 'pfold';
 
     $expect = [1,0,0,0,1,1,0,0,1,0,0,1,1,1,0];
