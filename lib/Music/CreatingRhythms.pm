@@ -133,10 +133,10 @@ Generate the upper or lower Christoffel word for B<p> and B<q>.
 
 Arguments:
 
-  $t: required type of word (u: upper, l: lower)
-  $p: required numerator of slope
-  $q: required denominator of slope
-  $n: optional number of terms to generate, default: p+q
+  t: required type of word (u: upper, l: lower)
+  p: required numerator of slope
+  q: required denominator of slope
+  n: optional number of terms to generate, default: p+q
 
 =cut
 
