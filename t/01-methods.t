@@ -20,8 +20,12 @@ subtest cfcv => sub {
     my $mcr = new_ok $module;
 
     # sqrt(2)
-    my $expect = [7,5];
-    my $got = $mcr->cfcv(1, 2, 2);
+    my $expect = [3,2];
+    my $got = $mcr->cfcv(1, 2);
+    is_deeply $got, $expect, 'cfcv';
+
+    $expect = [7,5];
+    $got = $mcr->cfcv(1, 2, 2);
     is_deeply $got, $expect, 'cfcv';
 
     $expect = [17,12];
