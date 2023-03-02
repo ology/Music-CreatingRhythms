@@ -98,10 +98,17 @@ sub cfcv {
 
 =head2 cfsqrt
 
+  $terms = $mcr->cfsqrt($n);
   $terms = $mcr->cfsqrt($n, $m);
 
 Calculate the continued fraction for C<sqrt(n)> to B<m> digits, where
 B<n> and B<m> are integers.
+
+Examples:
+
+    $got = $mcr->cfsqrt(2, 2); # [1,2]
+    $got = $mcr->cfsqrt(2, 3); # [1,2,2]
+    $got = $mcr->cfsqrt(2, 4); # [1,2,2,2]
 
 =cut
 
