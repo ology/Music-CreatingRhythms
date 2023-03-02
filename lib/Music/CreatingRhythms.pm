@@ -68,7 +68,7 @@ Calculate a continued fraction convergent given the B<terms>.
 
 Examples:
 
-  $got = $mcr->cfcv(1, 2);       # [3,2] 
+  $got = $mcr->cfcv(1, 2);       # [3,2]
   $got = $mcr->cfcv(1, 2, 2);    # [7,5]
   $got = $mcr->cfcv(1, 2, 2, 2); # [17,12]
 
