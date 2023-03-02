@@ -68,9 +68,9 @@ Calculate a continued fraction convergent given the B<terms>.
 
 Examples:
 
-    $got = $mcr->cfcv(1, 2);       # [3,2] 
-    $got = $mcr->cfcv(1, 2, 2);    # [7,5]
-    $got = $mcr->cfcv(1, 2, 2, 2); # [17,12]
+  $got = $mcr->cfcv(1, 2);       # [3,2] 
+  $got = $mcr->cfcv(1, 2, 2);    # [7,5]
+  $got = $mcr->cfcv(1, 2, 2, 2); # [17,12]
 
 =cut
 
@@ -106,9 +106,9 @@ B<n> and B<m> are integers.
 
 Examples:
 
-    $got = $mcr->cfsqrt(2, 2); # [1,2]
-    $got = $mcr->cfsqrt(2, 3); # [1,2,2]
-    $got = $mcr->cfsqrt(2, 4); # [1,2,2,2]
+  $got = $mcr->cfsqrt(2, 2); # [1,2]
+  $got = $mcr->cfsqrt(2, 3); # [1,2,2]
+  $got = $mcr->cfsqrt(2, 4); # [1,2,2,2]
 
 =cut
 
@@ -365,6 +365,13 @@ sub euclid {
   $sequence = $mcr->invert_at($n, $parts);
 
 Invert a section of a B<parts> binary sequence at B<n>.
+
+Example:
+
+    $parts = [qw(1 0 1 0 0)];
+    $got = $mcr->invert_at(0, $parts); # 0 1 0 1 1
+    $got = $mcr->invert_at(1, $parts); # 1 1 0 1 1
+    $got = $mcr->invert_at(2, $parts); # 1 0 0 1 1
 
 =cut
 
