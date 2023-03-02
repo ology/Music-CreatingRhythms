@@ -267,8 +267,7 @@ Here, the "parts" are the number of elements of each interval set.
 
 Example:
 
-  $got = $mcr->compam(4, 3, 1,2);
-  # [[1,1,2],[1,2,1],[2,1,1]]
+  $got = $mcr->compam(4, 3, 1,2); # [[1,1,2],[1,2,1],[2,1,1]]
 
 =cut
 
