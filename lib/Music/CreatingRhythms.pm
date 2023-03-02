@@ -656,7 +656,7 @@ sub partm {
 
 =head2 permi
 
-  $all_permutations = $mcr->permi(\@parts);
+  $permutations = $mcr->permi(\@parts);
 
 Return all permutations of the given B<parts> list as an
 array-reference of array-references.
