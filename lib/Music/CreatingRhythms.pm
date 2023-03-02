@@ -420,6 +420,10 @@ sub invert_at {
 
 Generate all binary necklaces of length B<n>.
 
+Example:
+
+  $got = $mcr->neck(3); # [1,1,1],[1,1,0],[1,0,0],[0,0,0]
+
 =cut
 
 sub neck {
@@ -461,7 +465,14 @@ sub _neckbin {
   $necklaces = $mcr->necka($n, @intervals);
 
 Generate binary necklaces of length B<n> with allowed intervals
-B<p1, p2, ... pn>.
+B<p1, p2, ... pn>. For these "necklace" class of functions, the word
+"intervals" refers to the size of a number given trailing zeros. So
+intervals C<1>, C<2>, and C<3> are represented as C<1>, C<1,0>, and
+C<1,0,0> respectively.
+
+Example:
+
+  $got = $mcr->necka(4, 1,2); # [1,1,1,1],[1,1,1,0],[1,0,1,0]
 
 =cut
 
