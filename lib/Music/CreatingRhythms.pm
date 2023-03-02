@@ -352,6 +352,10 @@ sub _composem {
 
 Generate the largest de Bruijn sequence of order B<n>.
 
+Example:
+
+  $got = $mcr->debruijn_n(3); # 1 1 1 0 1 0 0 0
+
 =cut
 
 sub debruijn_n {
@@ -366,6 +370,13 @@ sub debruijn_n {
 
 Generate a Euclidean rhythm given B<n> onsets distributed over B<m>
 beats.
+
+Examples:
+
+  $got = $mcr->euclid(1, 4); # [1,0,0,0]
+  $got = $mcr->euclid(2, 4); # [1,0,1,0]
+  $got = $mcr->euclid(3, 4); # [1,1,0,1]
+  $got = $mcr->euclid(4, 4); # [1,1,1,1]
 
 =cut
 
