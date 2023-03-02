@@ -239,6 +239,8 @@ sub _composea {
 Generate compositions of B<n> with B<m> parts and allowed intervals
 B<p1, p2, ... pn>.
 
+Here, the "parts" are the number of elements of each interval set.
+
 =cut
 
 sub compam {
