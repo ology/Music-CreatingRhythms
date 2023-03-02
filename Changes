@@ -2,7 +2,7 @@ Revision history for Music-CreatingRhythms
 
 {{$NEXT}}
     - Improve the eg/pfold-set.pl program.
-    - Improve documentation.
+    - Improve documentation drastically!
 
 0.0300 2023-03-01 13:50:53
     - Add the pfold() method.
