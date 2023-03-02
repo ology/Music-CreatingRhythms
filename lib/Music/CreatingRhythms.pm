@@ -681,7 +681,30 @@ sub permi {
 
   $sequences = $mcr->pfold($n, $m, $f);
 
-Generate fold sequences.
+Generate "paper folding" sequences, where B<n> is the number of terms
+to calculate, B<m> is the size of the binary representation of the
+folding function, and B<f> is the folding function number, which can
+range from C<0> to C<2^m - 1>.
+
+To quote the book, "Put a rectangular strip of paper on a flat surface
+in front of you, with the long dimension going left to right. Now pick
+up the right end of the paper and fold it over onto the left end.
+Repeat this process a few times and unfold the paper. [There will be]
+a sequence of creases in the paper, some will look like valleys and
+some will look like ridges... Let valley creases be symbolized by the
+number 1 and ridge creases by the number 0..."
+
+Example:
+
+  # "regular paper folding sequence"
+  # "folding in the same direction all the time"
+  $got = $mcr->pfold(1, 1, 1); # [1]
+  $got = $mcr->pfold(2, 1, 1); # [1,1]
+  $got = $mcr->pfold(3, 1, 1); # [1,1,0]
+
+  # but other parameters can generate more interesting rhythms...
+  $got = $mcr->pfold(15, 4, 0); # [0,0,1,0,0,1,1,0,0,0,1,1,0,1,1]
+  $got = $mcr->pfold(15, 4, 1); # [1,0,0,0,1,1,0,0,1,0,0,1,1,1,0]
 
 =cut
 
