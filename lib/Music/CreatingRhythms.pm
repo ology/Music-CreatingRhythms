@@ -588,6 +588,10 @@ sub part {
 Generate all partitions of B<n> with allowed intervals
 B<p1, p2, ... pn>.
 
+Example:
+
+    $got = $mcr->parta(4, 1,2); # [1,1,1,1],[1,1,2],[2,2]
+
 =cut
 
 sub parta {
