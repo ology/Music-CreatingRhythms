@@ -745,6 +745,14 @@ sub _oddeven {
 
 Reverse a section of a B<parts> sequence at B<n>.
 
+Examples:
+
+    $parts = [qw(1 0 1 0 0)];
+    $got = $mcr->reverse_at(0, $parts); # 0 0 1 0 1
+    $got = $mcr->reverse_at(1, $parts); # 1 0 0 1 0
+    $got = $mcr->reverse_at(2, $parts); # 1 0 0 0 1
+    $got = $mcr->reverse_at(3, $parts); # 1 0 1 0 0
+
 =cut
 
 sub reverse_at {
