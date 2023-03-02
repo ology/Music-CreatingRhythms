@@ -199,6 +199,8 @@ sub _compose {
 Generate compositions of B<n> with allowed intervals
 B<p1, p2, ... pn>.
 
+Here, the "intervals" are the terms of the partition.
+
 =cut
 
 sub compa {
