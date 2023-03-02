@@ -66,6 +66,12 @@ Create a new C<Music::CreatingRhythms> object.
 
 Calculate a continued fraction convergent given the B<terms>.
 
+Examples:
+
+    $got = $mcr->cfcv(1, 2);       # [3,2] 
+    $got = $mcr->cfcv(1, 2, 2);    # [7,5]
+    $got = $mcr->cfcv(1, 2, 2, 2); # [17,12]
+
 =cut
 
 sub cfcv {
@@ -278,6 +284,8 @@ sub _composeam {
   $compositions = $mcr->compm($n, $m);
 
 Generate all compositions of B<n> into B<m> parts.
+
+Again, the "parts" are the number of elements of each interval set.
 
 =cut
 
