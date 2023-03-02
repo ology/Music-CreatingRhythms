@@ -220,6 +220,11 @@ B<p1, p2, ... pn>.
 
 Here, the "intervals" are the terms of the partition.
 
+Example:
+
+  $got = $mcr->compa(4, 1,2);
+  # [[1,1,1,1],[1,1,2],[1,2,1],[2,1,1],[2,2]]
+
 =cut
 
 sub compa {
@@ -260,6 +265,11 @@ B<p1, p2, ... pn>.
 
 Here, the "parts" are the number of elements of each interval set.
 
+Example:
+
+  $got = $mcr->compam(4, 3, 1,2);
+  # [[1,1,2],[1,2,1],[2,1,1]]
+
 =cut
 
 sub compam {
@@ -299,6 +309,10 @@ sub _composeam {
 Generate all compositions of B<n> into B<m> parts.
 
 Again, the "parts" are the number of elements of each interval set.
+
+Example:
+
+  $got = $mcr->compm(4, 2); # [[1,3],[2,2],[3,1]]
 
 =cut
 
