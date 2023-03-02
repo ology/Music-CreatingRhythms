@@ -176,7 +176,8 @@ sub chsequl {
 
 Generate all compositions of B<n>.
 
-A "composition" is the partition of B<n> with the duplicates removed.
+A "composition" is the set of combinatorial "variations" of the
+partitions of B<n> with the duplicates removed.
 
 =cut
 
