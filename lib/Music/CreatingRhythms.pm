@@ -565,6 +565,10 @@ sub _neckbinm {
 
 Generate all partitions of B<n>.
 
+Example:
+
+  $got = $mcr->part(4); # [1,1,1,1],[1,1,2],[2,2],[1,3],[4]
+
 =cut
 
 sub part {
