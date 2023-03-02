@@ -366,7 +366,7 @@ sub euclid {
 
 Invert a section of a B<parts> binary sequence at B<n>.
 
-Example:
+Examples:
 
     $parts = [qw(1 0 1 0 0)];
     $got = $mcr->invert_at(0, $parts); # 0 1 0 1 1
