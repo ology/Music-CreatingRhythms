@@ -884,10 +884,7 @@ sub seq2interval {
     my ($self, $sequences) = @_;
     my @intervals;
     for my $i (@$sequences) {
-        my $string = '';
-        for my $j (@$i) {
-            $string .= $j;
-        }
+        my $string = join '', @$i;
         push @intervals, [ map { length $_ } grep { $_ } split /(10*)/, $string ];
     }
     return \@intervals;
