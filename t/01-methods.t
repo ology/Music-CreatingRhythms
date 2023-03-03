@@ -294,6 +294,18 @@ subtest euclid => sub {
     is_deeply $got, $expect, 'euclid';
 };
 
+subtest interval2seq => sub {
+    my $mcr = new_ok $module;
+
+    my $expect = [[1,1,0,1,0,0]];
+    my $got = $mcr->interval2seq([[1,2,3]]);
+    is_deeply $got, $expect, 'interval2seq';
+
+    $expect = [[1],[1,0],[1,0,0]];
+    $got = $mcr->interval2seq([[1],[2],[3]]);
+    is_deeply $got, $expect, 'interval2seq';
+};
+
 subtest invert_at => sub {
     my $mcr = new_ok $module;
 
