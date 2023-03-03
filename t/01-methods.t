@@ -663,4 +663,16 @@ subtest rotate_n => sub {
     is_deeply $got, $expect, 'rotate_n';
 };
 
+subtest seq2interval => sub {
+    my $mcr = new_ok $module;
+
+    my $expect = [[1,2,3]];
+    my $got = $mcr->seq2interval([[1,1,0,1,0,0]]);
+    is_deeply $got, $expect, 'seq2interval';
+
+    $expect = [[1],[2],[3]];
+    $got = $mcr->seq2interval([[1],[1,0],[1,0,0]]);
+    is_deeply $got, $expect, 'seq2interval';
+};
+
 done_testing();
