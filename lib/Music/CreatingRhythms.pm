@@ -390,6 +390,34 @@ sub euclid {
     return \@pattern;
 }
 
+=head2 interval2seq
+
+  $sequences = $mcr->interval2seq($intervals);
+
+Convert B<intervals> of the form C<[2,3]> into a set of binary
+sequences.
+
+Examples:
+
+  $got = $mcr->interval2seq([[1,2,3]]);     # [[1,1,0,1,0,0]]
+  $got = $mcr->interval2seq([[1],[2],[3]]); # [[1],[1,0],[1,0,0]]
+
+=cut
+
+sub interval2seq {
+    my ($self, $intervals) = @_;
+    my @sequences;
+    for my $i (@$intervals) {
+        my @bitstring;
+        for my $j (@$i) {
+            my $bits = '1' . '0' x ($j - 1);
+            push @bitstring, split //, $bits;
+        }
+        push @sequences, \@bitstring;
+    }
+    return \@sequences;
+}
+
 =head2 invert_at
 
   $sequence = $mcr->invert_at($n, $parts);
