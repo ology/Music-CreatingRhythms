@@ -866,6 +866,33 @@ sub _allowed { # is p one of the parts?
     return any { $p == $_ } @$parts;
 }
 
+=head2 seq2interval
+
+  $intervals = $mcr->seq2interval($sequences);
+
+Convert binary B<sequences> of the form C<[[1,0],[1,0,0]]> into a set
+of intervals of the form C<[[2],[3]]>.
+
+Examples:
+
+  $got = $mcr->seq2interval([[1,1,0,1,0,0]]);     # [[1,2,3]]
+  $got = $mcr->seq2interval([[1],[1,0],[1,0,0]]); # [[1],[2],[3]]
+
+=cut
+
+sub seq2interval {
+    my ($self, $sequences) = @_;
+    my @intervals;
+    for my $i (@$sequences) {
+        my $string = '';
+        for my $j (@$i) {
+            $string .= $j;
+        }
+        push @intervals, [ map { length $_ } grep { $_ } split /(10*)/, $string ];
+    }
+    return \@intervals;
+}
+
 1;
 __END__
 
