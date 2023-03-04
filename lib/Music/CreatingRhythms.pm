@@ -1,6 +1,6 @@
 package Music::CreatingRhythms;
 
-# ABSTRACT: Ported Perl from the book's C code
+# ABSTRACT: Combinatorial algorithms to generate rhythms
 
 our $VERSION = '0.0401';
 
