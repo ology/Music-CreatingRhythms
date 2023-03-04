@@ -353,7 +353,7 @@ Generate a random composition of B<n>.
 
 Example:
 
-  $got = $mcr->comprnd(16); # 1 3 2 1 1 2 1 3 2, etc.
+  $got = $mcr->comprnd(16); # [1,3,2,1,1,2,1,3,2], etc.
 
 =cut
 
