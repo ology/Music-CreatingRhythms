@@ -47,7 +47,7 @@ sub hihat {
 sub snare_drum {
     my $q = int rand $m;
     my $sequence = $mcr->chsequl($t, $p, $q, $n);
-    print 'Snare: ', ddc($sequence, {max_width=>128});
+    print "Snare ($t, $p, $q, $n): ", ddc($sequence, {max_width=>128});
     for (1 .. $max) {
         for my $i (@$sequence) {
             $i ? $d->note('sn', $d->snare) : $d->rest('sn');
@@ -58,7 +58,7 @@ sub snare_drum {
 sub kick_drum {
     my $q = int rand $m;
     my $sequence = $mcr->chsequl($t, $p, $q, $n);
-    print 'Kick:  ', ddc($sequence, {max_width=>128});
+    print "Kick  ($t, $p, $q, $n): ", ddc($sequence, {max_width=>128});
     for (1 .. $max) {
         for my $i (@$sequence) {
             $i ? $d->note('sn', $d->kick) : $d->rest('sn');
