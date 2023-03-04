@@ -255,6 +255,22 @@ subtest compm => sub {
     is_deeply $got, $expect, 'compm';
 };
 
+subtest compmrnd => sub {
+    my $mcr = new_ok $module;
+
+    my $expect = 0;
+    my $got = $mcr->compmrnd(0, 0);
+    is sum0(@$got), $expect, 'compmrnd';
+
+    $expect = 1;
+    $got = $mcr->compmrnd(1, 1);
+    is sum0(@$got), $expect, 'compmrnd';
+
+    $expect = 16;
+    $got = $mcr->compmrnd(16, 4);
+    is sum0(@$got), $expect, 'compmrnd';
+};
+
 subtest comprnd => sub {
     my $mcr = new_ok $module;
 
