@@ -35,7 +35,6 @@ $d->sync(
 $d->write;
 
 sub hihat {
-    my $q = int rand $m;
     my $sequence = [ (1) x 8 ];
     print 'Hihat: ', ddc($sequence, {max_width=>128});
     for (1 .. $max / 2) {
