@@ -60,6 +60,30 @@ Create a new C<Music::CreatingRhythms> object.
 
 =cut
 
+=head2 b2int
+
+  $intervals = $mcr->b2int($sequences);
+
+Convert binary B<sequences> of the form C<[[1,0],[1,0,0]]> into a set
+of intervals of the form C<[[2],[3]]>.
+
+Examples:
+
+  $got = $mcr->b2int([[1,1,0,1,0,0]]);     # [[1,2,3]]
+  $got = $mcr->b2int([[1],[1,0],[1,0,0]]); # [[1],[2],[3]]
+
+=cut
+
+sub b2int {
+    my ($self, $sequences) = @_;
+    my @intervals;
+    for my $i (@$sequences) {
+        my $string = join '', @$i;
+        push @intervals, [ map { length $_ } grep { $_ } split /(10*)/, $string ];
+    }
+    return \@intervals;
+}
+
 =head2 cfcv
 
   $convergent = $mcr->cfcv(@terms);
@@ -926,30 +950,6 @@ sub rotate_n {
 sub _allowed { # is p one of the parts?
     my ($p, $parts) = @_;
     return any { $p == $_ } @$parts;
-}
-
-=head2 b2int
-
-  $intervals = $mcr->b2int($sequences);
-
-Convert binary B<sequences> of the form C<[[1,0],[1,0,0]]> into a set
-of intervals of the form C<[[2],[3]]>.
-
-Examples:
-
-  $got = $mcr->b2int([[1,1,0,1,0,0]]);     # [[1,2,3]]
-  $got = $mcr->b2int([[1],[1,0],[1,0,0]]); # [[1],[2],[3]]
-
-=cut
-
-sub b2int {
-    my ($self, $sequences) = @_;
-    my @intervals;
-    for my $i (@$sequences) {
-        my $string = join '', @$i;
-        push @intervals, [ map { length $_ } grep { $_ } split /(10*)/, $string ];
-    }
-    return \@intervals;
 }
 
 1;
