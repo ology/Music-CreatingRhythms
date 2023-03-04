@@ -359,7 +359,7 @@ Example:
 
 sub comprnd {
     my ($self, $n) = @_;
-    return [ 0 ] unless $n;
+    return [0] unless $n;
     my @compositions;
     my $p = 1;
     for my $i (1 .. $n - 1) {
