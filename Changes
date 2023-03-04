@@ -1,6 +1,7 @@
 Revision history for Music-CreatingRhythms
 
 {{$NEXT}}
+    - Add the comprnd() method.
 
 0.0404 2023-03-04 10:37:23
     - Add the eg/play-set.pl program a bit more.
