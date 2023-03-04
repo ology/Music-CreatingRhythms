@@ -242,24 +242,24 @@ subtest compm => sub {
     is_deeply $got, $expect, 'compm';
 };
 
-subtest debruijn_n => sub {
+subtest de_bruijn => sub {
     my $mcr = new_ok $module;
 
     my $expect = [0];
-    my $got = $mcr->debruijn_n(0);
-    is_deeply $got, $expect, 'debruijn_n';
+    my $got = $mcr->de_bruijn(0);
+    is_deeply $got, $expect, 'de_bruijn';
 
     $expect = [qw(1 0)];
-    $got = $mcr->debruijn_n(1);
-    is_deeply $got, $expect, 'debruijn_n';
+    $got = $mcr->de_bruijn(1);
+    is_deeply $got, $expect, 'de_bruijn';
 
     $expect = [qw(1 1 0 0)];
-    $got = $mcr->debruijn_n(2);
-    is_deeply $got, $expect, 'debruijn_n';
+    $got = $mcr->de_bruijn(2);
+    is_deeply $got, $expect, 'de_bruijn';
 
     $expect = [qw(1 1 1 0 1 0 0 0)];
-    $got = $mcr->debruijn_n(3);
-    is_deeply $got, $expect, 'debruijn_n';
+    $got = $mcr->de_bruijn(3);
+    is_deeply $got, $expect, 'de_bruijn';
 };
 
 subtest euclid => sub {

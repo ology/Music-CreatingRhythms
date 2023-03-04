@@ -345,19 +345,19 @@ sub _composem {
     _composem($n - 1, $p + 1, $k, $m, $i, $compositions, $parts);
 }
 
-=head2 debruijn_n
+=head2 de_bruijn
 
-  $sequence = $mcr->debruijn_n($n);
+  $sequence = $mcr->de_bruijn($n);
 
 Generate the largest de Bruijn sequence of order B<n>.
 
 Example:
 
-  $got = $mcr->debruijn_n(3); # 1 1 1 0 1 0 0 0
+  $got = $mcr->de_bruijn(3); # 1 1 1 0 1 0 0 0
 
 =cut
 
-sub debruijn_n {
+sub de_bruijn {
     my ($self, $n) = @_;
     my $sequence = $n ? debruijn([1,0], $n) : 0;
     return [ split //, $sequence ];
