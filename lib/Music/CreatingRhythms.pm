@@ -390,21 +390,21 @@ sub euclid {
     return \@pattern;
 }
 
-=head2 interval2seq
+=head2 int2b
 
-  $sequences = $mcr->interval2seq($intervals);
+  $sequences = $mcr->int2b($intervals);
 
 Convert B<intervals> of the form C<[2,3]> into a set of binary
 sequences.
 
 Examples:
 
-  $got = $mcr->interval2seq([[1,2,3]]);     # [[1,1,0,1,0,0]]
-  $got = $mcr->interval2seq([[1],[2],[3]]); # [[1],[1,0],[1,0,0]]
+  $got = $mcr->int2b([[1,2,3]]);     # [[1,1,0,1,0,0]]
+  $got = $mcr->int2b([[1],[2],[3]]); # [[1],[1,0],[1,0,0]]
 
 =cut
 
-sub interval2seq {
+sub int2b {
     my ($self, $intervals) = @_;
     my @sequences;
     for my $i (@$intervals) {
@@ -866,21 +866,21 @@ sub _allowed { # is p one of the parts?
     return any { $p == $_ } @$parts;
 }
 
-=head2 seq2interval
+=head2 b2int
 
-  $intervals = $mcr->seq2interval($sequences);
+  $intervals = $mcr->b2int($sequences);
 
 Convert binary B<sequences> of the form C<[[1,0],[1,0,0]]> into a set
 of intervals of the form C<[[2],[3]]>.
 
 Examples:
 
-  $got = $mcr->seq2interval([[1,1,0,1,0,0]]);     # [[1,2,3]]
-  $got = $mcr->seq2interval([[1],[1,0],[1,0,0]]); # [[1],[2],[3]]
+  $got = $mcr->b2int([[1,1,0,1,0,0]]);     # [[1,2,3]]
+  $got = $mcr->b2int([[1],[1,0],[1,0,0]]); # [[1],[2],[3]]
 
 =cut
 
-sub seq2interval {
+sub b2int {
     my ($self, $sequences) = @_;
     my @intervals;
     for my $i (@$sequences) {

@@ -16,6 +16,18 @@ subtest defaults => sub {
     is $mcr->verbose, 1, 'verbose';
 };
 
+subtest b2int => sub {
+    my $mcr = new_ok $module;
+
+    my $expect = [[1,2,3]];
+    my $got = $mcr->b2int([[1,1,0,1,0,0]]);
+    is_deeply $got, $expect, 'b2int';
+
+    $expect = [[1],[2],[3]];
+    $got = $mcr->b2int([[1],[1,0],[1,0,0]]);
+    is_deeply $got, $expect, 'b2int';
+};
+
 subtest cfcv => sub {
     my $mcr = new_ok $module;
 
@@ -294,16 +306,16 @@ subtest euclid => sub {
     is_deeply $got, $expect, 'euclid';
 };
 
-subtest interval2seq => sub {
+subtest int2b => sub {
     my $mcr = new_ok $module;
 
     my $expect = [[1,1,0,1,0,0]];
-    my $got = $mcr->interval2seq([[1,2,3]]);
-    is_deeply $got, $expect, 'interval2seq';
+    my $got = $mcr->int2b([[1,2,3]]);
+    is_deeply $got, $expect, 'int2b';
 
     $expect = [[1],[1,0],[1,0,0]];
-    $got = $mcr->interval2seq([[1],[2],[3]]);
-    is_deeply $got, $expect, 'interval2seq';
+    $got = $mcr->int2b([[1],[2],[3]]);
+    is_deeply $got, $expect, 'int2b';
 };
 
 subtest invert_at => sub {
@@ -661,18 +673,6 @@ subtest rotate_n => sub {
     $expect = [qw(1 0 1 0 0)];
     $got = $mcr->rotate_n(5, $parts);
     is_deeply $got, $expect, 'rotate_n';
-};
-
-subtest seq2interval => sub {
-    my $mcr = new_ok $module;
-
-    my $expect = [[1,2,3]];
-    my $got = $mcr->seq2interval([[1,1,0,1,0,0]]);
-    is_deeply $got, $expect, 'seq2interval';
-
-    $expect = [[1],[2],[3]];
-    $got = $mcr->seq2interval([[1],[1,0],[1,0,0]]);
-    is_deeply $got, $expect, 'seq2interval';
 };
 
 done_testing();
