@@ -27,7 +27,7 @@ use namespace::clean;
 C<Music::CreatingRhythms> provides the combinatorial algorithms
 described in the book, "Creating Rhythms", by Hollos. These algorithms
 are ported directly from the C, and are pretty fast. Please see the
-link below for more information.
+links below for more information.
 
 NB: Arguments are sometimes switched between book and software.
 
@@ -896,6 +896,8 @@ __END__
 =head1 SEE ALSO
 
 L<https://abrazol.com/books/rhythm1/> "Creating Rhythms"
+
+L<https://ology.github.io/2023/03/02/creating-rhythms-with-perl/>
 
 The F<t/01-methods.t> and F<eg/*> programs included with this distribution.
 
