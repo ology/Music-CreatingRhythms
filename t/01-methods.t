@@ -3,6 +3,7 @@ use strict;
 use warnings;
 
 use Test::More;
+use List::Util qw(sum0);
 
 my $module = 'Music::CreatingRhythms';
 
@@ -252,6 +253,22 @@ subtest compm => sub {
     $expect = [[1,5],[2,4],[3,3],[4,2],[5,1]];
     $got = $mcr->compm(6, 2);
     is_deeply $got, $expect, 'compm';
+};
+
+subtest comprnd => sub {
+    my $mcr = new_ok $module;
+
+    my $expect = 0;
+    my $got = $mcr->comprnd(0);
+    is sum0(@$got), $expect, 'comprnd';
+
+    $expect = 1;
+    $got = $mcr->comprnd(1);
+    is sum0(@$got), $expect, 'comprnd';
+
+    $expect = 16;
+    $got = $mcr->comprnd(16);
+    is sum0(@$got), $expect, 'comprnd';
 };
 
 subtest de_bruijn => sub {
