@@ -1,6 +1,8 @@
 Revision history for Music-CreatingRhythms
 
 {{$NEXT}}
+
+0.0402 2023-03-03 21:24:33
     - Fix ABSTRACT.
     - Add the eg/play-set.pl program.
 
