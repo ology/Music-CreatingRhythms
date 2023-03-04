@@ -345,6 +345,36 @@ sub _composem {
     _composem($n - 1, $p + 1, $k, $m, $i, $compositions, $parts);
 }
 
+=head2 comprnd
+
+  $composition = $mcr->comprnd($n);
+
+Generate a random composition of B<n>.
+
+Example:
+
+  $got = $mcr->comprnd(16); # 1 3 2 1 1 2 1 3 2, etc.
+
+=cut
+
+sub comprnd {
+    my ($self, $n) = @_;
+    return [ 0 ] unless $n;
+    my @compositions;
+    my $p = 1;
+    for my $i (1 .. $n - 1) {
+        if ((int rand 2) % 2 == 0) {
+            $p++;
+        }
+        else {
+            push @compositions, $p;
+            $p = 1;
+        }
+    }
+    push @compositions, $p;
+    return \@compositions;
+}
+
 =head2 de_bruijn
 
   $sequence = $mcr->de_bruijn($n);
