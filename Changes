@@ -1,6 +1,9 @@
 Revision history for Music-CreatingRhythms
 
 {{$NEXT}}
+    - Fix ABSTRACT.
+
+0.0401 2023-03-03 20:02:05
     - Rename de_bruijn().
 
 0.0400 2023-03-03 09:16:08
