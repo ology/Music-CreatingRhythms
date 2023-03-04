@@ -345,6 +345,38 @@ sub _composem {
     _composem($n - 1, $p + 1, $k, $m, $i, $compositions, $parts);
 }
 
+=head2 compmrnd
+
+  $composition = $mcr->compmrnd($n);
+
+Generate a random composition of B<n>.
+
+Example:
+
+  $got = $mcr->compmrnd(16, 4); # [6,1,3,6], etc.
+
+=cut
+
+sub compmrnd {
+    my ($self, $n, $m) = @_;
+    return [0] unless $n;
+    my @compositions;
+    my ($p, $j, $np);
+    for(my $mp = $m - 1, $np = $n - 1, $j = 1; $mp > 0; --$np) {
+        $p = $mp / $np;
+        if ($p % 2 == 0) {
+            push @compositions, $j;
+            $mp--;
+            $j = 1;
+        }
+        else {
+            $j++;
+        }
+    }
+    push @compositions, $j + $np;
+    return \@compositions;
+}
+
 =head2 comprnd
 
   $composition = $mcr->comprnd($n);
@@ -383,7 +415,7 @@ Generate the largest de Bruijn sequence of order B<n>.
 
 Example:
 
-  $got = $mcr->de_bruijn(3); # 1 1 1 0 1 0 0 0
+  $got = $mcr->de_bruijn(3); # [1,1,1,0,1,0,0,0]
 
 =cut
 
