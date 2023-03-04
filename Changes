@@ -1,6 +1,7 @@
 Revision history for Music-CreatingRhythms
 
 {{$NEXT}}
+    - Alphabetize subroutine order.
 
 0.0500 2023-03-04 11:20:14
     - Add the comprnd() and compmrnd() methods.
