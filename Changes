@@ -1,6 +1,8 @@
 Revision history for Music-CreatingRhythms
 
 {{$NEXT}}
+
+0.0404 2023-03-04 10:37:23
     - Add the eg/play-set.pl program a bit more.
     - Rename b2int() and int2b() to match the book.
 
