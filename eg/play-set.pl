@@ -20,7 +20,7 @@ my $mcr = Music::CreatingRhythms->new;
 
 my $d = MIDI::Drummer::Tiny->new(
    file   => 'play-set.mid',
-   bpm    => 100,
+   bpm    => 90,
    volume => 100,
    bars   => 4,
    reverb => 15,
@@ -40,7 +40,7 @@ sub hihat {
     print 'Hihat: ', ddc($sequence, {max_width=>128});
     for (1 .. $max / 2) {
         for my $i (@$sequence) {
-            $i ? $d->note('en', $d->closed_hh) : $d->rest('en');
+            $i ? $d->note('qn', $d->closed_hh) : $d->rest('qn');
         }
     }
 }
