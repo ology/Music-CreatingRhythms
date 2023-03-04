@@ -957,9 +957,9 @@ __END__
 
 =head1 SEE ALSO
 
-L<https://abrazol.com/books/rhythm1/> "Creating Rhythms", the book.
+L<https://abrazol.com/books/rhythm1/> - "Creating Rhythms", the book.
 
-L<https://ology.github.io/2023/03/02/creating-rhythms-with-perl/>, my write-up.
+L<https://ology.github.io/2023/03/02/creating-rhythms-with-perl/> - my write-up.
 
 The F<t/01-methods.t> and F<eg/*> programs included with this distribution.
 
