@@ -1,6 +1,7 @@
 Revision history for Music-CreatingRhythms
 
 {{$NEXT}}
+    - Add the eg/play-euclid-set.pl program.
 
 0.0502 2023-03-05 16:29:39
     - Improve the eg/play-set.pl program.
