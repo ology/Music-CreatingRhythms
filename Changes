@@ -1,6 +1,7 @@
 Revision history for Music-CreatingRhythms
 
 {{$NEXT}}
+    - Fix distro excludes. Oof!
 
 0.0504 2023-03-05 17:06:34
     - Improve the eg/play-*.pl program logic.
