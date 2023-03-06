@@ -37,9 +37,12 @@ $d->write;
 sub hihat {
     my $sequence = [ (1) x 8 ];
     print '8th Hihat: ', ddc($sequence);
-    for (1 .. $d->bars) {
+    my $j = 0;
+    for my $n (1 .. $d->bars) {
         for my $i (@$sequence) {
-            $i ? $d->note('en', $d->closed_hh) : $d->rest('en');
+            my $note = ($j % 16) == 0 ? $d->crash2 : $d->closed_hh;
+            $i ? $d->note('en', $note) : $d->rest('en');
+            $j++;
         }
     }
 }
