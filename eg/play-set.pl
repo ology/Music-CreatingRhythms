@@ -40,7 +40,7 @@ sub hihat {
     my $j = 0;
     for my $n (1 .. $d->bars) {
         for my $i (@$sequence) {
-            my $note = ($j % 16) == 0 ? $d->crash2 : $d->closed_hh;
+            my $note = ($j % $n) == 0 ? $d->crash2 : $d->closed_hh;
             $i ? $d->note('en', $note) : $d->rest('en');
             $j++;
         }
