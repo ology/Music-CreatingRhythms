@@ -14,7 +14,7 @@ my $p = shift || 2;   # numerator of slope
 my $m = shift || 14;  # maximum denominator
 my $n = shift || 16;  # number of terms to generate
 
-my $max = shift || 8; # times to loop
+my $loops = shift || 8; # times to loop
 
 my $mcr = Music::CreatingRhythms->new;
 
@@ -22,7 +22,7 @@ my $d = MIDI::Drummer::Tiny->new(
    file   => 'play-christoffel-set.mid',
    bpm    => 90,
    volume => 100,
-   bars   => $max,
+   bars   => $loops,
    reverb => 15,
 );
 
