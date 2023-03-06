@@ -22,7 +22,7 @@ my $d = MIDI::Drummer::Tiny->new(
    file   => 'play-set.mid',
    bpm    => 90,
    volume => 100,
-   bars   => 4,
+   bars   => $max,
    reverb => 15,
 );
 
@@ -37,7 +37,7 @@ $d->write;
 sub hihat {
     my $sequence = [ (1) x 8 ];
     print '1/8 Hihat: ', ddc($sequence);
-    for (1 .. $max) {
+    for (1 .. $d->bars) {
         for my $i (@$sequence) {
             $i ? $d->note('en', $d->closed_hh) : $d->rest('en');
         }
@@ -48,7 +48,7 @@ sub snare_drum {
     my $q = int rand $m;
     my $sequence = $mcr->chsequl($t, $p, $q, $n);
     print "16th Snare ($t, $p, $q, $n): ", ddc($sequence);
-    for (1 .. $max) {
+    for (1 .. $d->bars) {
         for my $i (@$sequence) {
             $i ? $d->note('sn', $d->snare) : $d->rest('sn');
         }
@@ -59,7 +59,7 @@ sub kick_drum {
     my $q = int rand $m;
     my $sequence = $mcr->chsequl($t, $p, $q, $n);
     print "16th Kick  ($t, $p, $q, $n): ", ddc($sequence);
-    for (1 .. $max) {
+    for (1 .. $d->bars) {
         for my $i (@$sequence) {
             $i ? $d->note('sn', $d->kick) : $d->rest('sn');
         }
