@@ -33,8 +33,9 @@ $d->sync(
 $d->write;
 
 sub hihat {
-    my $sequence = [ (1) x 8 ];
-    print '8th Hihat: ', ddc($sequence);
+    my $x = int $n / 2;
+    my $sequence = [ (1) x $x ];
+    print "1/$x Hihat: ", ddc($sequence);
     for my $n (1 .. $d->bars) {
         for my $i (@$sequence) {
             $i ? $d->note('en', $d->closed_hh) : $d->rest('en');
@@ -43,9 +44,9 @@ sub hihat {
 }
 
 sub snare_drum {
-    my $p = int rand $m + 1;
+    my $p = int(rand $m) + 1;
     my $sequence = $mcr->euclid($p, $n);
-    print "16th Snare ($p, $n): ", ddc($sequence);
+    print "1/$n Snare ($p, $n): ", ddc($sequence);
     for (1 .. $d->bars) {
         for my $i (@$sequence) {
             $i ? $d->note('sn', $d->snare) : $d->rest('sn');
@@ -54,9 +55,9 @@ sub snare_drum {
 }
 
 sub kick_drum {
-    my $p = int rand $m + 1;
+    my $p = int(rand $m) + 1;
     my $sequence = $mcr->euclid($p, $n);
-    print "16th Kick  ($p, $n): ", ddc($sequence);
+    print "1/$n Kick  ($p, $n): ", ddc($sequence);
     for (1 .. $d->bars) {
         for my $i (@$sequence) {
             $i ? $d->note('sn', $d->kick) : $d->rest('sn');
