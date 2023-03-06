@@ -14,7 +14,7 @@ my $p = shift || 2;   # numerator of slope
 my $m = shift || 14;  # maximum denominator
 my $n = shift || 16;  # number of terms to generate
 
-my $max = shift || 4; # times to loop
+my $max = shift || 8; # times to loop
 
 my $mcr = Music::CreatingRhythms->new;
 
@@ -36,10 +36,10 @@ $d->write;
 
 sub hihat {
     my $sequence = [ (1) x 8 ];
-    print '1/4 Hihat: ', ddc($sequence);
-    for (1 .. $max / 2) {
+    print '1/8 Hihat: ', ddc($sequence);
+    for (1 .. $max) {
         for my $i (@$sequence) {
-            $i ? $d->note('qn', $d->closed_hh) : $d->rest('qn');
+            $i ? $d->note('en', $d->closed_hh) : $d->rest('en');
         }
     }
 }
