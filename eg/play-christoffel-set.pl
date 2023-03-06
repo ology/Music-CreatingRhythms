@@ -19,7 +19,7 @@ my $max = shift || 8; # times to loop
 my $mcr = Music::CreatingRhythms->new;
 
 my $d = MIDI::Drummer::Tiny->new(
-   file   => 'play-set.mid',
+   file   => 'play-christoffel-set.mid',
    bpm    => 90,
    volume => 100,
    bars   => $max,
@@ -37,12 +37,9 @@ $d->write;
 sub hihat {
     my $sequence = [ (1) x 8 ];
     print '8th Hihat: ', ddc($sequence);
-    my $j = 0;
     for my $n (1 .. $d->bars) {
         for my $i (@$sequence) {
-            my $note = ($j % $n) == 0 ? $d->crash2 : $d->closed_hh;
-            $i ? $d->note('en', $note) : $d->rest('en');
-            $j++;
+            $i ? $d->note('en', $d->closed_hh) : $d->rest('en');
         }
     }
 }
