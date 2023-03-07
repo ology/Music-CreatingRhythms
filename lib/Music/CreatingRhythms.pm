@@ -431,6 +431,60 @@ sub comprnd {
     return \@compositions;
 }
 
+=head2 count_ones
+
+  $count = $mcr->count_ones($n);
+
+Count the number of 1s in a string or vector.
+
+Examples:
+
+  $got = $mcr->count_ones('100110100');         # 4
+  $got = $mcr->count_ones([1,0,0,1,1,0,1,0,0]); # 4
+
+=cut
+
+sub count_ones {
+    my ($self, $n) = @_;
+    my $x = 0;
+    if (ref $n) {
+        for my $i (@$n) {
+            $x++ if $i == 1;
+        }
+    }
+    else {
+        $x = $n =~ tr/1//;
+    }
+    return $x;
+}
+
+=head2 count_zeros
+
+  $count = $mcr->count_zeros($n);
+
+Count the number of 0s in a string or vector.
+
+Examples:
+
+  $got = $mcr->count_zeros('100110100');         # 5
+  $got = $mcr->count_zeros([1,0,0,1,1,0,1,0,0]); # 5
+
+=cut
+
+sub count_zeros {
+    my ($self, $n) = @_;
+    my $x = 0;
+    if (ref $n) {
+        for my $i (@$n) {
+            $x++ if $i == 0;
+        }
+    }
+    else {
+        $x = $n =~ tr/0//;
+    }
+    return $x;
+}
+
 =head2 de_bruijn
 
   $sequence = $mcr->de_bruijn($n);
