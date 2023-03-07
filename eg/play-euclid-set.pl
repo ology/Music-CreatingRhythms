@@ -2,7 +2,7 @@
 use strict;
 use warnings;
 
-# Play Christoffel word sets.
+# Play Euclidean word sets.
 
 use Data::Dumper::Compact qw(ddc);
 use lib map { "$ENV{HOME}/sandbox/$_/lib" } qw(MIDI-Drummer-Tiny Music-CreatingRhythms); # local author libs
