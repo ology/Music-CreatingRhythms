@@ -1,6 +1,8 @@
 Revision history for Music-CreatingRhythms
 
 {{$NEXT}}
+
+0.0600 2023-03-06 16:40:08
     - Fix distro excludes. Oof!
     - Add the count_ones() and count_zeros() methods.
 
