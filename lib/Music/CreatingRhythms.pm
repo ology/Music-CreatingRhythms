@@ -567,9 +567,9 @@ Invert a section of a B<parts> binary sequence at B<n>.
 Examples:
 
     $parts = [qw(1 0 1 0 0)];
-    $got = $mcr->invert_at(0, $parts); # 0 1 0 1 1
-    $got = $mcr->invert_at(1, $parts); # 1 1 0 1 1
-    $got = $mcr->invert_at(2, $parts); # 1 0 0 1 1
+    $got = $mcr->invert_at(0, $parts); # [0,1,0,1,1]
+    $got = $mcr->invert_at(1, $parts); # [1,1,0,1,1]
+    $got = $mcr->invert_at(2, $parts); # [1,0,0,1,1]
 
 =cut
 
