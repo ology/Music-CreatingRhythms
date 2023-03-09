@@ -1,6 +1,7 @@
 Revision history for Music-CreatingRhythms
 
 {{$NEXT}}
+    - Fix examples.
 
 0.0600 2023-03-06 16:40:08
     - Fix distro excludes. Oof!
