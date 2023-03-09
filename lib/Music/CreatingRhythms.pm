@@ -25,9 +25,9 @@ use namespace::clean;
 =head1 DESCRIPTION
 
 C<Music::CreatingRhythms> provides the combinatorial algorithms
-described in the book, "Creating Rhythms", by Hollos. These algorithms
-are ported directly from the C, and are pretty fast. Please see the
-links below for more information.
+described in the book, "Creating Rhythms", by Hollos. Many of these
+algorithms are ported directly from the C, and are pretty fast. Please
+see the links below for more information.
 
 NB: Arguments are sometimes switched between book and software.
 
