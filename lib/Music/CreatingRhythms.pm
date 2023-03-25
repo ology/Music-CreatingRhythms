@@ -1039,4 +1039,6 @@ L<Moo>
 
 L<Music::AtonalUtil>
 
+L<Music::CreatingRhythms::SqrtContinued>
+
 =cut
