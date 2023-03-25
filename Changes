@@ -1,6 +1,9 @@
 Revision history for Music-CreatingRhythms
 
 {{$NEXT}}
+    - Remove the dependency on Math::libm.
+
+0.0602 2023-03-12 09:38:18
     - Improve documentation.
     - Add tests.
 
