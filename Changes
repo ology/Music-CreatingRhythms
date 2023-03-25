@@ -2,6 +2,7 @@ Revision history for Music-CreatingRhythms
 
 {{$NEXT}}
     - Remove the dependency on Math::libm.
+    - Skip the cfsqrt() tests because oeis() is unmocked.
 
 0.0602 2023-03-12 09:38:18
     - Improve documentation.
