@@ -5,11 +5,29 @@ use strictures 2;
 use OEIS qw(oeis);
 use namespace::clean;
 
+=head1 DESCRIPTION
+
+Replacement for L<Math::NumSeq::SqrtContinued>.
+
+=head1 ATTRIBUTES
+
+=head2 sqrt
+
+The number to take the square-root of.
+
+=cut
+
 has sqrt => (
     is       => 'ro',
     isa      => sub { die "$_[0] is not a positive integer" unless $_[0] =~ /^\d+$/ },
     required => 1,
 );
+
+=head2 terms
+
+The number of terms to return from the OEIS.
+
+=cut
 
 has terms => (
     is       => 'ro',
@@ -17,7 +35,6 @@ has terms => (
     required => 1,
 );
 
-# http://oeis.org/index/Con#confC
 # A010171 to A010175 have OFFSET=1, unlike the rest
 # OFFSET=0, but still include them in the catalogue for now
 my @oeis_anum = (
@@ -242,6 +259,14 @@ my @oeis_anum = (
     'A010237', # sqrt=199
 );
 
+=head1 METHOD
+
+=head2 get_seq
+
+Return the OEIS sequence for the B<sqrt> and B<terms> attributes.
+
+=cut
+
 sub get_seq {
     my ($self) = @_;
     my $anum = $oeis_anum[ $self->sqrt ];
@@ -250,3 +275,14 @@ sub get_seq {
 }
 
 1;
+__END__
+
+=head1 SEE ALSO
+
+L<Moo>
+
+L<OEIS>
+
+L<http://oeis.org/index/Con#confC>
+
+=cut
