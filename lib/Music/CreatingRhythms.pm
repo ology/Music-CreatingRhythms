@@ -7,11 +7,10 @@ our $VERSION = '0.0602';
 use Moo;
 use strictures 2;
 use Algorithm::Combinatorics qw(permutations);
-use Carp qw(croak);
 use Data::Munge qw(list2re);
 use Integer::Partition ();
 use List::Util qw(all any);
-use Math::NumSeq::SqrtContinued ();
+use Music::CreatingRhythms::SqrtContinued ();
 use Math::Sequence::DeBruijn qw(debruijn);
 use Music::AtonalUtil ();
 use namespace::clean;
@@ -46,7 +45,7 @@ Show progress. * This is not showing anything yet, however.
 
 has verbose => (
     is      => 'ro',
-    isa     => sub { croak "$_[0] is not a boolean" unless $_[0] =~ /^[01]$/ },
+    isa     => sub { die "$_[0] is not a boolean" unless $_[0] =~ /^[01]$/ },
     default => sub { 0 },
 );
 
@@ -139,13 +138,13 @@ Examples:
 sub cfsqrt {
     my ($self, $n, $m) = @_;
     $m ||= $n;
-    my @terms;
-    my $seq = Math::NumSeq::SqrtContinued->new(sqrt => $n);
-    for my $i (1 .. $m) {
-        my ($j, $value) = $seq->next;
-        push @terms, $value;
-    }
-    return \@terms;
+    my $seq = Music::CreatingRhythms::SqrtContinued->new(
+        sqrt  => $n,
+        terms => $m,
+    );
+    my $terms = $seq->get_seq;
+    warn "OEIS terms less than $m!\n" if @$terms < $m;
+    return $terms;
 }
 
 =head2 chsequl
