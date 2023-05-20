@@ -10,7 +10,6 @@ use Algorithm::Combinatorics qw(permutations);
 use Data::Munge qw(list2re);
 use Integer::Partition ();
 use List::Util qw(all any);
-use Music::CreatingRhythms::SqrtContinued ();
 use Math::Sequence::DeBruijn qw(debruijn);
 use Music::AtonalUtil ();
 use namespace::clean;
@@ -138,13 +137,20 @@ Examples:
 sub cfsqrt {
     my ($self, $n, $m) = @_;
     $m ||= $n;
-    my $seq = Music::CreatingRhythms::SqrtContinued->new(
-        sqrt  => $n,
-        terms => $m,
-    );
-    my $terms = $seq->get_seq;
-    warn "OEIS terms less than $m!\n" if @$terms < $m;
-    return $terms;
+    my @terms;
+    my $ok = eval {
+        require Math::NumSeq::SqrtContinued;
+        1;
+    };
+    die 'ERROR: Math::NumSeq::SqrtContinued not installed'
+        unless $ok;
+
+    my $seq = Math::NumSeq::SqrtContinued->new(sqrt => $n);
+    for my $i (1 .. $m) {
+        my ($j, $value) = $seq->next;
+        push @terms, $value;
+    }
+    return \@terms;
 }
 
 =head2 chsequl
