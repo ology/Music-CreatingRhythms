@@ -11,8 +11,12 @@ use Data::Munge qw(list2re);
 use Integer::Partition ();
 use List::Util qw(all any);
 use Math::Sequence::DeBruijn qw(debruijn);
+use Module::Load::Conditional qw(check_install);
 use Music::AtonalUtil ();
 use namespace::clean;
+
+use if defined check_install(module => 'Math::NumSeq::SqrtContinued'),
+    'Math::NumSeq::SqrtContinued';
 
 =head1 SYNOPSIS
 
@@ -138,10 +142,6 @@ sub cfsqrt {
     my ($self, $n, $m) = @_;
     $m ||= $n;
     my @terms;
-    my $ok = eval "require Math::NumSeq::SqrtContinued; 1";
-    #my $ok = eval { require Math::NumSeq::SqrtContinued; 1 };
-    die 'ERROR: Math::NumSeq::SqrtContinued not installed'
-        unless $ok;
 
     my $seq = Math::NumSeq::SqrtContinued->new(sqrt => $n);
     for my $i (1 .. $m) {
