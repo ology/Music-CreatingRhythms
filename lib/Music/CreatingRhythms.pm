@@ -2,7 +2,7 @@ package Music::CreatingRhythms;
 
 # ABSTRACT: Combinatorial algorithms to generate rhythms
 
-our $VERSION = '0.0700';
+our $VERSION = '0.0800';
 
 use Moo;
 use strictures 2;
