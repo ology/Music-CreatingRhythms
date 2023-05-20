@@ -2,6 +2,7 @@ Revision history for Music-CreatingRhythms
 
 {{$NEXT}}
     - Require the superior Math::NumSeq::SqrtContinued instead of the limited OEIS lookup.
+    - But unfortunately it's done in a string eval, so dzil doesn't think it's a prereq!
 
 0.0700 2023-03-25 11:35:45
     - Remove the dependency on Math::libm.
