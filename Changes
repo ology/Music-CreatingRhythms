@@ -1,6 +1,9 @@
 Revision history for Music-CreatingRhythms
 
 {{$NEXT}}
+    - Use Module::Load::Conditional + if.
+
+0.0800 2023-05-20 01:02:59
     - Require the superior Math::NumSeq::SqrtContinued instead of the limited OEIS lookup.
     - But unfortunately it's done in a string eval, so dzil doesn't think it's a prereq!
 
