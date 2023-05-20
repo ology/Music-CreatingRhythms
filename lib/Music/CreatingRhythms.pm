@@ -138,10 +138,8 @@ sub cfsqrt {
     my ($self, $n, $m) = @_;
     $m ||= $n;
     my @terms;
-    my $ok = eval {
-        require Math::NumSeq::SqrtContinued;
-        1;
-    };
+    my $ok = eval "require Math::NumSeq::SqrtContinued; 1";
+    #my $ok = eval { require Math::NumSeq::SqrtContinued; 1 };
     die 'ERROR: Math::NumSeq::SqrtContinued not installed'
         unless $ok;
 
