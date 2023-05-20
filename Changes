@@ -1,6 +1,7 @@
 Revision history for Music-CreatingRhythms
 
 {{$NEXT}}
+    - Comment-out tests that will fail without the Math::NumSeq::SqrtContinued module.
 
 0.0801 2023-05-20 01:21:49
     - Use Module::Load::Conditional + if.
