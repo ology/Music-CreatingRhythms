@@ -1,6 +1,8 @@
 Revision history for Music-CreatingRhythms
 
 {{$NEXT}}
+
+0.0802 2023-05-20 09:56:57
     - Comment-out tests that will fail without the Math::NumSeq::SqrtContinued module.
 
 0.0801 2023-05-20 01:21:49
