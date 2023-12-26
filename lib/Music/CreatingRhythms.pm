@@ -4,7 +4,6 @@ package Music::CreatingRhythms;
 
 our $VERSION = '0.0802';
 
-use Moo;
 use strictures 2;
 use Algorithm::Combinatorics qw(permutations);
 use Data::Munge qw(list2re);
@@ -12,6 +11,7 @@ use Integer::Partition ();
 use List::Util qw(all any);
 use Math::Sequence::DeBruijn qw(debruijn);
 use Module::Load::Conditional qw(check_install);
+use Moo;
 use Music::AtonalUtil ();
 use namespace::clean;
 
@@ -129,6 +129,9 @@ sub cfcv {
 
 Calculate the continued fraction for C<sqrt(n)> to B<m> digits, where
 B<n> and B<m> are integers.
+
+* This function needs L<Math::NumSeq::SqrtContinued> to be installed.
+YMMV
 
 Examples:
 
