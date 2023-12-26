@@ -67,8 +67,10 @@ Create a new C<Music::CreatingRhythms> object.
 
   $intervals = $mcr->b2int($sequences);
 
-Convert binary B<sequences> of the form C<[[1,0],[1,0,0]]> into a set
-of intervals of the form C<[[2],[3]]>.
+Convert binary B<sequences> of the form C<[[1],[1,0],[1,0,0]]> into a
+set of intervals of the form C<[[1],[2],[3]]>.
+
+This basically is the number of zeros following a one.
 
 Examples:
 
