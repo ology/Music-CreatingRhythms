@@ -1,6 +1,8 @@
 Revision history for Music-CreatingRhythms
 
 {{$NEXT}}
+
+0.0803 2023-12-26 11:22:30
     - Improve documentation.
     - Add the count_digits() method as a generic version of the count_*() methods.
 
