@@ -1,6 +1,7 @@
 Revision history for Music-CreatingRhythms
 
 {{$NEXT}}
+    - Conditionally subtest the cfsqrt() method if Math::NumSeq::SqrtContinued is installed.
 
 0.0803 2023-12-26 11:22:30
     - Improve documentation.
