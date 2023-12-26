@@ -131,7 +131,7 @@ sub cfcv {
 Calculate the continued fraction for C<sqrt(n)> to B<m> digits, where
 B<n> and B<m> are integers.
 
-* This function needs L<Math::NumSeq::SqrtContinued> to be installed.
+* This method needs L<Math::NumSeq::SqrtContinued> to be installed.
 YMMV
 
 Examples:
@@ -447,6 +447,44 @@ sub comprnd {
     return \@compositions;
 }
 
+=head2 count_digits
+
+  $count = $mcr->count_digits($digit, $n);
+
+Count the number of a given B<digit> in a string or vector (B<n>).
+
+Examples:
+
+  $got = $mcr->count_digits(0, '100110100');         # 5
+  $got = $mcr->count_digits(0, [1,0,0,1,1,0,1,0,0]); # 5
+  $got = $mcr->count_digits(1, '100110100');         # 4
+  $got = $mcr->count_digits(1, [1,0,0,1,1,0,1,0,0]); # 4
+
+=cut
+
+sub count_digits {
+    my ($self, $digit, $n) = @_;
+    my $x = 0;
+    if (ref $n) {
+        for my $i (@$n) {
+            $x++ if $i == $digit;
+        }
+    }
+    else {
+           if ($digit == 0) { $x = $n =~ tr/0// }
+        elsif ($digit == 1) { $x = $n =~ tr/1// }
+        elsif ($digit == 2) { $x = $n =~ tr/2// }
+        elsif ($digit == 3) { $x = $n =~ tr/3// }
+        elsif ($digit == 4) { $x = $n =~ tr/4// }
+        elsif ($digit == 5) { $x = $n =~ tr/5// }
+        elsif ($digit == 6) { $x = $n =~ tr/6// }
+        elsif ($digit == 7) { $x = $n =~ tr/7// }
+        elsif ($digit == 8) { $x = $n =~ tr/8// }
+        elsif ($digit == 9) { $x = $n =~ tr/9// }
+    }
+    return $x;
+}
+
 =head2 count_ones
 
   $count = $mcr->count_ones($n);
@@ -462,16 +500,7 @@ Examples:
 
 sub count_ones {
     my ($self, $n) = @_;
-    my $x = 0;
-    if (ref $n) {
-        for my $i (@$n) {
-            $x++ if $i == 1;
-        }
-    }
-    else {
-        $x = $n =~ tr/1//;
-    }
-    return $x;
+    return $self->count_digits(1, $n);
 }
 
 =head2 count_zeros
@@ -489,16 +518,7 @@ Examples:
 
 sub count_zeros {
     my ($self, $n) = @_;
-    my $x = 0;
-    if (ref $n) {
-        for my $i (@$n) {
-            $x++ if $i == 0;
-        }
-    }
-    else {
-        $x = $n =~ tr/0//;
-    }
-    return $x;
+    return $self->count_digits(0, $n);
 }
 
 =head2 de_bruijn
@@ -648,7 +668,7 @@ sub _neckbin {
   $necklaces = $mcr->necka($n, @intervals);
 
 Generate binary necklaces of length B<n> with allowed intervals
-B<p1, p2, ... pn>. For these "necklace" class of functions, the word
+B<p1, p2, ... pn>. For these "necklace" class of methods, the word
 "intervals" refers to the size of a number given trailing zeros. So
 intervals C<1>, C<2>, and C<3> are represented as C<1>, C<1,0>, and
 C<1,0,0> respectively.
