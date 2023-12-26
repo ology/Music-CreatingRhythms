@@ -1,6 +1,9 @@
 Revision history for Music-CreatingRhythms
 
 {{$NEXT}}
+    - Add more b2int test cases inspired by SIMCOP.
+
+0.0804 2023-12-26 11:58:01
     - Conditionally subtest the cfsqrt() method if Math::NumSeq::SqrtContinued is installed.
 
 0.0803 2023-12-26 11:22:30
