@@ -35,7 +35,7 @@ fast. Please see the links below for more information.
 NB: Arguments are sometimes switched between book and software.
 
 Additionally, this module provides utilities that are not part of the
-book, but are handy nonetheless.
+book but are handy nonetheless.
 
 =head1 ATTRIBUTES
 
