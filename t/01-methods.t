@@ -20,12 +20,40 @@ subtest defaults => sub {
 subtest b2int => sub {
     my $mcr = new_ok $module;
 
-    my $expect = [[1,2,3]];
-    my $got = $mcr->b2int([[1,1,0,1,0,0]]);
+    my $expect = [];
+    my $got = $mcr->b2int([]);
+    is_deeply $got, $expect, 'b2int';
+
+    $expect = [[]];
+    $got = $mcr->b2int([[0]]); # curious edge case
+    is_deeply $got, $expect, 'b2int';
+
+    $expect = [[1,2,3]];
+    $got = $mcr->b2int([[1,1,0,1,0,0]]);
     is_deeply $got, $expect, 'b2int';
 
     $expect = [[1],[2],[3]];
     $got = $mcr->b2int([[1],[1,0],[1,0,0]]);
+    is_deeply $got, $expect, 'b2int';
+
+    $expect = [[2,2],[1,2,2]];
+    $got = $mcr->b2int([[1,0,1,0],[1,1,0,1,0]]);
+    is_deeply $got, $expect, 'b2int';
+
+    $expect = [[4],[4]];
+    $got = $mcr->b2int([[1,0,0,0],[1,0,0,0]]);
+    is_deeply $got, $expect, 'b2int';
+
+    $expect = [[4],[4]];
+    $got = $mcr->b2int([[0,0,0,0],[0,0,0,0]]); # curious edge case
+    is_deeply $got, $expect, 'b2int';
+
+    $expect = [[1,1,1,1]];
+    $got = $mcr->b2int([[1,1,1,1]]);
+    is_deeply $got, $expect, 'b2int';
+
+    $expect = [[1,1,1,1],[1,1,1,1]];
+    $got = $mcr->b2int([[1,1,1,1],[1,1,1,1]]);
     is_deeply $got, $expect, 'b2int';
 };
 
