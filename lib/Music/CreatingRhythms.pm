@@ -2,7 +2,7 @@ package Music::CreatingRhythms;
 
 # ABSTRACT: Combinatorial algorithms to generate rhythms
 
-our $VERSION = '0.0802';
+our $VERSION = '0.0803';
 
 use strictures 2;
 use Algorithm::Combinatorics qw(permutations);
