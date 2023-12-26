@@ -13,10 +13,11 @@ use Math::Sequence::DeBruijn qw(debruijn);
 use Module::Load::Conditional qw(check_install);
 use Moo;
 use Music::AtonalUtil ();
-use namespace::clean;
 
 use if defined check_install(module => 'Math::NumSeq::SqrtContinued'),
     'Math::NumSeq::SqrtContinued';
+
+use namespace::clean;
 
 =head1 SYNOPSIS
 
