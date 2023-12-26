@@ -26,10 +26,10 @@ use if defined check_install(module => 'Math::NumSeq::SqrtContinued'),
 
 =head1 DESCRIPTION
 
-C<Music::CreatingRhythms> provides the combinatorial algorithms
-described in the book, "Creating Rhythms", by Hollos. Many of these
-algorithms are ported directly from the C, and are pretty fast. Please
-see the links below for more information.
+C<Music::CreatingRhythms> provides most of the the combinatorial
+algorithms described in the book, "Creating Rhythms", by Hollos. Many
+of these algorithms are ported directly from the C, and are pretty
+fast. Please see the links below for more information.
 
 NB: Arguments are sometimes switched between book and software.
 
