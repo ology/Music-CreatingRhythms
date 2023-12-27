@@ -67,8 +67,12 @@ Create a new C<Music::CreatingRhythms> object.
 
   $intervals = $mcr->b2int($sequences);
 
-Convert binary B<sequences> of the form C<[[1],[1,0],[1,0,0]]> into a
-set of intervals of the form C<[[1],[2],[3]]>.
+This method takes a set of binary sequences and converts them into
+intervals.
+
+That is, it converts binary B<sequences> of the form
+C<[[1],[1,0],[1,0,0]]> into a set of intervals of the form
+C<[[1],[2],[3]]>.
 
 This basically is the number of zeros following a one.
 
@@ -93,7 +97,9 @@ sub b2int {
 
   $convergent = $mcr->cfcv(@terms);
 
-Calculate a continued fraction convergent given the B<terms>.
+This method calculates the continued fraction convergent given a set
+of B<terms>. It is used to find the best rational approximations to
+real numbers by using their continued fraction expansions.
 
 Examples:
 
@@ -213,6 +219,11 @@ sub chsequl {
 }
 
 =head2 comp
+
+The C<comp*> methods are used to generate compositions of numbers,
+which are ways to partition an integer into smaller parts. The
+arguments passed to these functions determine the specific composition
+that is generated.
 
   $compositions = $mcr->comp($n);
 
@@ -527,7 +538,9 @@ sub count_zeros {
 
   $sequence = $mcr->de_bruijn($n);
 
-Generate the largest de Bruijn sequence of order B<n>.
+This method generates the largest de Bruijn sequence of order B<n>,
+which is a cyclic sequence containing all possible combinations of
+length C<n> with no repeating subsequences.
 
 Example:
 
@@ -620,6 +633,9 @@ sub invert_at {
 }
 
 =head2 neck
+
+The C<neck*> methods generate binary necklaces of a certain length
+with or without specific constraints on their intervals.
 
   $necklaces = $mcr->neck($n);
 
@@ -811,6 +827,10 @@ sub _neckbinm {
 
 =head2 part
 
+The C<part*> methods are used to generate all possible partitions of
+an integer into smaller parts, either with or without specific
+constraints on the lengths of those parts.
+
   $partitions = $mcr->part($n);
 
 Generate all partitions of B<n>.
@@ -936,6 +956,12 @@ Generate "paper folding" sequences, where B<n> is the number of terms
 to calculate, B<m> is the size of the binary representation of the
 folding function, and B<f> is the folding function number, which can
 range from C<0> to C<2^m - 1>.
+
+This method generates "paper folding" sequences, which are binary
+sequences that represent the creases on a piece of paper after it has
+been folded multiple times in different directions. The arguments
+passed to this function determine the specific sequence that is
+generated.
 
 To quote the book, "Put a rectangular strip of paper on a flat surface
 in front of you, with the long dimension going left to right. Now pick
