@@ -725,8 +725,12 @@ subtest permi => sub {
 subtest pfold => sub {
     my $mcr = new_ok $module;
 
-    my $expect = [1];
-    my $got = $mcr->pfold(1, 1, 1);
+    my $expect = [];
+    my $got = $mcr->pfold(-1, 1, 1);
+    is_deeply $got, $expect, 'pfold';
+
+    $expect = [1];
+    $got = $mcr->pfold(1, 1, 1);
     is_deeply $got, $expect, 'pfold';
 
     $expect = [1,1];
