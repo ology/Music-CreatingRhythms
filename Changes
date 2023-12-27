@@ -1,6 +1,7 @@
 Revision history for Music-CreatingRhythms
 
 {{$NEXT}}
+    - Improve documentation based on SIMCOP's AI method description experiments.
 
 0.0805 2023-12-26 14:36:45
     - Add more b2int test cases inspired by SIMCOP.
