@@ -5,7 +5,7 @@ use warnings;
 # Play Christoffel word sets.
 
 use Data::Dumper::Compact qw(ddc);
-use lib map { "$ENV{HOME}/sandbox/$_/lib" } qw(MIDI-Drummer-Tiny Music-CreatingRhythms); # local author libs
+use if $ENV{USER} eq "gene", lib => map { "$ENV{HOME}/sandbox/$_/lib" } qw(MIDI-Drummer-Tiny Music-CreatingRhythms); # local author libs
 use MIDI::Drummer::Tiny ();
 use Music::CreatingRhythms ();
 
