@@ -2,6 +2,7 @@ Revision history for Music-CreatingRhythms
 
 {{$NEXT}}
     - Add an edge-case pfold() test, again inspired by SIMCOP.
+    - Lose local author lib line in eg/.
 
 0.0806 2023-12-27 13:26:07
     - Improve documentation based on SIMCOP's AI method description experiments.
