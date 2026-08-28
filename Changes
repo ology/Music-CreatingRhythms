@@ -1,6 +1,8 @@
 Revision history for Music-CreatingRhythms
 
 {{$NEXT}}
+
+0.0808 2026-08-28 11:20:46
     - Add an edge-case pfold() test, again inspired by SIMCOP.
     - Lose local author lib line in eg/ and fix email.
 
